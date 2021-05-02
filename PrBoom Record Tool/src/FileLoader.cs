@@ -2,7 +2,7 @@
 {
     class FileLoader
     {
-        private App app;
+        private readonly App app;
 
         public FileLoader(App app) 
         {

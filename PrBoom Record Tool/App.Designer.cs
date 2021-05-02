@@ -283,7 +283,7 @@ namespace PrBoomRecordTool
             this.playDemoButton.TabIndex = 16;
             this.playDemoButton.Text = "Play demo";
             this.playDemoButton.UseVisualStyleBackColor = true;
-            this.playDemoButton.Click += new System.EventHandler(this.playDemoButtonOnClick);
+            this.playDemoButton.Click += new System.EventHandler(this.PlayDemoButtonOnClick);
             // 
             // App
             // 

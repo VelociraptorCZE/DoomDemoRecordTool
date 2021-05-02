@@ -6,8 +6,8 @@ namespace PrBoomRecordTool
 {
     public partial class App : Form
     {
-        private FileLoader fileLoader;
-        private DemoRecorder demoRecorder;
+        private readonly FileLoader fileLoader;
+        private readonly DemoRecorder demoRecorder;
 
         public App()
         {
@@ -16,7 +16,7 @@ namespace PrBoomRecordTool
             demoRecorder = new DemoRecorder(this);
         }
 
-        private void playDemoButtonOnClick(object sender, EventArgs e)
+        private void PlayDemoButtonOnClick(object sender, EventArgs e)
         {
             demoRecorder.PlayRecording();
         }
@@ -57,8 +57,8 @@ namespace PrBoomRecordTool
 
             try
             {
-                string iwadPath = Properties.Settings.Default.IwadPath.ToString();
-                string prBoomPath = Properties.Settings.Default.PrBoomPath.ToString();
+                string iwadPath = Properties.Settings.Default.IwadPath;
+                string prBoomPath = Properties.Settings.Default.PrBoomPath;
 
                 if (iwadPath.Length != 0)
                 {

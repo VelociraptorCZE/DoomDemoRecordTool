@@ -6,7 +6,7 @@ namespace PrBoomRecordTool
 {
     class DemoRecorder
     {
-        private App app;
+        private readonly App app;
 
         public DemoRecorder(App app)
         {
@@ -37,7 +37,7 @@ namespace PrBoomRecordTool
 
         private bool IsRecordToolReady()
         {
-            bool isReady = Properties.Settings.Default.PrBoomPath.ToString().Length != 0;
+            bool isReady = Properties.Settings.Default.PrBoomPath.Length != 0;
 
             if (!isReady) 
             {
