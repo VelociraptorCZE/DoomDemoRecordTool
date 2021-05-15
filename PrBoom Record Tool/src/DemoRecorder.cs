@@ -44,7 +44,7 @@ namespace PrBoomRecordTool
 
         private bool IsRecordToolReady()
         {
-            bool isReady = Properties.Settings.Default.PrBoomPath.Length != 0;
+            bool isReady = Config.GetPrBoomPath().Length != 0;
 
             if (!isReady) 
             {
@@ -69,7 +69,7 @@ namespace PrBoomRecordTool
         private string GetPlayArguments()
         {
             return $@"
-                -iwad {Properties.Settings.Default.IwadPath}
+                -iwad {Config.GetIwadPath()}
                 -playdemo {GenerateDemoPath()}
                 -complevel {app.complevelInput.Value}
             ";
@@ -80,7 +80,7 @@ namespace PrBoomRecordTool
             string episode = app.episodeInput.Enabled ? app.episodeInput.Value.ToString() : "";
 
             return $@"
-                -iwad {Properties.Settings.Default.IwadPath}
+                -iwad {Config.GetIwadPath()}
                 -record {GenerateDemoPath()}
                 -warp {episode} {app.levelInput.Value}
                 -complevel {app.complevelInput.Value}
@@ -96,7 +96,7 @@ namespace PrBoomRecordTool
                 {
                     StartInfo = new ProcessStartInfo
                     {
-                        FileName = Properties.Settings.Default.PrBoomPath,
+                        FileName = Config.GetPrBoomPath(),
                         Arguments = arguments,
                         CreateNoWindow = true
                     },
@@ -118,7 +118,7 @@ namespace PrBoomRecordTool
 
         private string GenerateDemoPath()
         {
-            return $@"{DirectoryTools.GetDirectory(Properties.Settings.Default.PrBoomPath)}\{app.demoNameInput.Text}.lmp";
+            return $@"{DirectoryTools.GetDirectory(Config.GetPrBoomPath())}\{app.demoNameInput.Text}.lmp";
         }
     }
 }

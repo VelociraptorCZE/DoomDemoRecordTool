@@ -51,14 +51,20 @@ namespace PrBoomRecordTool
             episodeInput.Enabled = isEpisodeActiveCheckbox.Checked;
         }
 
+        private void OnDemoNameChange(object sender, EventArgs e)
+        {
+            Config.Save("LastDemoName", demoNameInput.Text);
+        }
+
         private void OnLoad(object sender, EventArgs e)
         {
             skillSelect.SelectedIndex = 3;
 
             try
             {
-                string iwadPath = Properties.Settings.Default.IwadPath;
-                string prBoomPath = Properties.Settings.Default.PrBoomPath;
+                string iwadPath = Config.GetIwadPath();
+                string prBoomPath = Config.GetPrBoomPath();
+                string lastDemoName = Config.GetLastDemoName();
 
                 if (iwadPath.Length != 0)
                 {
@@ -68,6 +74,11 @@ namespace PrBoomRecordTool
                 if (prBoomPath.Length != 0)
                 {
                     prBoomPathLabel.Text = prBoomPath;
+                }
+
+                if (lastDemoName.Length != 0)
+                {
+                    demoNameInput.Text = lastDemoName;
                 }
             } catch {}
         }

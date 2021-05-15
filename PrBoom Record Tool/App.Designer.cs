@@ -233,6 +233,7 @@ namespace PrBoomRecordTool
             this.demoNameInput.Size = new System.Drawing.Size(166, 27);
             this.demoNameInput.TabIndex = 12;
             this.demoNameInput.Text = "myrun";
+            this.demoNameInput.TextChanged += new System.EventHandler(this.OnDemoNameChange);
             // 
             // skillSelect
             // 
