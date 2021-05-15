@@ -55,7 +55,7 @@ namespace PrBoomRecordTool
             // 
             // openPrBoomDialog
             // 
-            this.openPrBoomDialog.Filter = "PrBoom|prboom.exe|GlBoom|glboom.exe";
+            this.openPrBoomDialog.Filter = "PrBoom|prboom*.exe|GlBoom|glboom*.exe";
             this.openPrBoomDialog.FileOk += new System.ComponentModel.CancelEventHandler(this.OpenPrBoomDialogFileLoaded);
             // 
             // recordDemoButton
