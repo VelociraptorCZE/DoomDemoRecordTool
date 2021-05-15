@@ -78,6 +78,7 @@ namespace PrBoomRecordTool
         private string GetRecordArguments() 
         {
             string episode = app.episodeInput.Enabled ? app.episodeInput.Value.ToString() : "";
+            string noMonsters = app.noMonstersCheckbox.Checked ? "-nomonsters" : "";
 
             return $@"
                 -iwad {Config.GetIwadPath()}
@@ -85,6 +86,7 @@ namespace PrBoomRecordTool
                 -warp {episode} {app.levelInput.Value}
                 -complevel {app.complevelInput.Value}
                 -skill {app.skillSelect.SelectedIndex + 1}
+                {noMonsters}
             ";
         }
 

@@ -29,6 +29,7 @@ namespace PrBoomRecordTool
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(App));
             this.openPrBoomDialog = new System.Windows.Forms.OpenFileDialog();
             this.recordDemoButton = new System.Windows.Forms.Button();
             this.locatePrBoomButton = new System.Windows.Forms.Button();
@@ -48,6 +49,7 @@ namespace PrBoomRecordTool
             this.difficultyLabel = new System.Windows.Forms.Label();
             this.isEpisodeActiveCheckbox = new System.Windows.Forms.CheckBox();
             this.playDemoButton = new System.Windows.Forms.Button();
+            this.noMonstersCheckbox = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.episodeInput)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.levelInput)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.complevelInput)).BeginInit();
@@ -286,11 +288,22 @@ namespace PrBoomRecordTool
             this.playDemoButton.UseVisualStyleBackColor = true;
             this.playDemoButton.Click += new System.EventHandler(this.PlayDemoButtonOnClick);
             // 
+            // noMonstersCheckbox
+            // 
+            this.noMonstersCheckbox.AutoSize = true;
+            this.noMonstersCheckbox.Location = new System.Drawing.Point(253, 148);
+            this.noMonstersCheckbox.Name = "noMonstersCheckbox";
+            this.noMonstersCheckbox.Size = new System.Drawing.Size(110, 21);
+            this.noMonstersCheckbox.TabIndex = 17;
+            this.noMonstersCheckbox.Text = "No monsters";
+            this.noMonstersCheckbox.UseVisualStyleBackColor = true;
+            // 
             // App
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(542, 336);
+            this.Controls.Add(this.noMonstersCheckbox);
             this.Controls.Add(this.playDemoButton);
             this.Controls.Add(this.isEpisodeActiveCheckbox);
             this.Controls.Add(this.difficultyLabel);
@@ -308,6 +321,7 @@ namespace PrBoomRecordTool
             this.Controls.Add(this.prBoomPathLabel);
             this.Controls.Add(this.locatePrBoomButton);
             this.Controls.Add(this.recordDemoButton);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "App";
             this.Text = "PrBoom Record Tool";
@@ -331,6 +345,7 @@ namespace PrBoomRecordTool
         private System.Windows.Forms.Button locatePrBoomButton;
         private System.Windows.Forms.Button locateIwadButton;
         private System.Windows.Forms.Label difficultyLabel;
+        private System.Windows.Forms.Button playDemoButton;
 
         public System.Windows.Forms.OpenFileDialog openPrBoomDialog;
         public System.Windows.Forms.Label prBoomPathLabel;
@@ -342,7 +357,7 @@ namespace PrBoomRecordTool
         public System.Windows.Forms.TextBox demoNameInput;
         public System.Windows.Forms.ComboBox skillSelect;
         public System.Windows.Forms.CheckBox isEpisodeActiveCheckbox;
-        private System.Windows.Forms.Button playDemoButton;
+        public System.Windows.Forms.CheckBox noMonstersCheckbox;
     }
 }
 
