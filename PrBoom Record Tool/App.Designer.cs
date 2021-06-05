@@ -51,6 +51,8 @@ namespace PrBoomRecordTool
             this.playDemoButton = new System.Windows.Forms.Button();
             this.noMonstersCheckbox = new System.Windows.Forms.CheckBox();
             this.fastMonstersCheckbox = new System.Windows.Forms.CheckBox();
+            this.saveDemoDialog = new System.Windows.Forms.SaveFileDialog();
+            this.SetDemoPathButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.episodeInput)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.levelInput)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.complevelInput)).BeginInit();
@@ -58,7 +60,7 @@ namespace PrBoomRecordTool
             // 
             // openPrBoomDialog
             // 
-            this.openPrBoomDialog.Filter = "PrBoom|prboom*.exe|GlBoom|glboom*.exe";
+            this.openPrBoomDialog.Filter = "PrBoom+|prboom-plus.exe|PrBoom|prboom.exe|Executable|*.exe";
             this.openPrBoomDialog.FileOk += new System.ComponentModel.CancelEventHandler(this.OpenPrBoomDialogFileLoaded);
             // 
             // recordDemoButton
@@ -75,11 +77,11 @@ namespace PrBoomRecordTool
             // locatePrBoomButton
             // 
             this.locatePrBoomButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.locatePrBoomButton.Location = new System.Drawing.Point(12, 33);
+            this.locatePrBoomButton.Location = new System.Drawing.Point(12, 12);
             this.locatePrBoomButton.Name = "locatePrBoomButton";
             this.locatePrBoomButton.Size = new System.Drawing.Size(236, 31);
             this.locatePrBoomButton.TabIndex = 1;
-            this.locatePrBoomButton.Text = "Locate PrBoom/GlBoom";
+            this.locatePrBoomButton.Text = "Locate sourceport";
             this.locatePrBoomButton.UseVisualStyleBackColor = true;
             this.locatePrBoomButton.Click += new System.EventHandler(this.LocatePrBoomButtonOnClick);
             // 
@@ -87,17 +89,17 @@ namespace PrBoomRecordTool
             // 
             this.prBoomPathLabel.AutoSize = true;
             this.prBoomPathLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.prBoomPathLabel.Location = new System.Drawing.Point(13, 13);
+            this.prBoomPathLabel.Location = new System.Drawing.Point(13, 46);
             this.prBoomPathLabel.Name = "prBoomPathLabel";
-            this.prBoomPathLabel.Size = new System.Drawing.Size(235, 18);
+            this.prBoomPathLabel.Size = new System.Drawing.Size(193, 18);
             this.prBoomPathLabel.TabIndex = 2;
-            this.prBoomPathLabel.Text = "PrBoom/GlBoom is not yet loaded";
+            this.prBoomPathLabel.Text = "Sourceport is not yet loaded";
             // 
             // iwadPathLabel
             // 
             this.iwadPathLabel.AutoSize = true;
             this.iwadPathLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.iwadPathLabel.Location = new System.Drawing.Point(291, 13);
+            this.iwadPathLabel.Location = new System.Drawing.Point(287, 46);
             this.iwadPathLabel.Name = "iwadPathLabel";
             this.iwadPathLabel.Size = new System.Drawing.Size(157, 18);
             this.iwadPathLabel.TabIndex = 4;
@@ -106,7 +108,7 @@ namespace PrBoomRecordTool
             // locateIwadButton
             // 
             this.locateIwadButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.locateIwadButton.Location = new System.Drawing.Point(290, 33);
+            this.locateIwadButton.Location = new System.Drawing.Point(290, 12);
             this.locateIwadButton.Name = "locateIwadButton";
             this.locateIwadButton.Size = new System.Drawing.Size(236, 31);
             this.locateIwadButton.TabIndex = 3;
@@ -191,9 +193,9 @@ namespace PrBoomRecordTool
             this.demoNameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.demoNameLabel.Location = new System.Drawing.Point(13, 202);
             this.demoNameLabel.Name = "demoNameLabel";
-            this.demoNameLabel.Size = new System.Drawing.Size(336, 18);
+            this.demoNameLabel.Size = new System.Drawing.Size(327, 18);
             this.demoNameLabel.TabIndex = 9;
-            this.demoNameLabel.Text = "Demo name (this is also used for demo playback)";
+            this.demoNameLabel.Text = "Demo path (this is also used for demo playback)";
             // 
             // complevelLabel
             // 
@@ -230,13 +232,12 @@ namespace PrBoomRecordTool
             // 
             // demoNameInput
             // 
-            this.demoNameInput.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.demoNameInput.Location = new System.Drawing.Point(12, 223);
+            this.demoNameInput.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.demoNameInput.Location = new System.Drawing.Point(150, 224);
             this.demoNameInput.Name = "demoNameInput";
-            this.demoNameInput.Size = new System.Drawing.Size(166, 27);
+            this.demoNameInput.ReadOnly = true;
+            this.demoNameInput.Size = new System.Drawing.Size(376, 24);
             this.demoNameInput.TabIndex = 12;
-            this.demoNameInput.Text = "myrun";
-            this.demoNameInput.TextChanged += new System.EventHandler(this.OnDemoNameChange);
             // 
             // skillSelect
             // 
@@ -309,11 +310,27 @@ namespace PrBoomRecordTool
             this.fastMonstersCheckbox.Text = "Fast monsters";
             this.fastMonstersCheckbox.UseVisualStyleBackColor = true;
             // 
+            // saveDemoDialog
+            // 
+            this.saveDemoDialog.Filter = "Doom demo file|*.lmp";
+            // 
+            // SetDemoPathButton
+            // 
+            this.SetDemoPathButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SetDemoPathButton.Location = new System.Drawing.Point(13, 223);
+            this.SetDemoPathButton.Name = "SetDemoPathButton";
+            this.SetDemoPathButton.Size = new System.Drawing.Size(131, 27);
+            this.SetDemoPathButton.TabIndex = 19;
+            this.SetDemoPathButton.Text = "Set demo path";
+            this.SetDemoPathButton.UseVisualStyleBackColor = true;
+            this.SetDemoPathButton.Click += new System.EventHandler(this.SetDemoPathButtonClick);
+            // 
             // App
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(542, 336);
+            this.Controls.Add(this.SetDemoPathButton);
             this.Controls.Add(this.fastMonstersCheckbox);
             this.Controls.Add(this.noMonstersCheckbox);
             this.Controls.Add(this.playDemoButton);
@@ -371,6 +388,8 @@ namespace PrBoomRecordTool
         public System.Windows.Forms.CheckBox isEpisodeActiveCheckbox;
         public System.Windows.Forms.CheckBox noMonstersCheckbox;
         public System.Windows.Forms.CheckBox fastMonstersCheckbox;
+        private System.Windows.Forms.SaveFileDialog saveDemoDialog;
+        private System.Windows.Forms.Button SetDemoPathButton;
     }
 }
 

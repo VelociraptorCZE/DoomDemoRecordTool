@@ -28,7 +28,12 @@ namespace PrBoomRecordTool
                 return;
             }
 
-            File.Delete(GenerateDemoPath());
+            try
+            {
+                File.Delete(Config.GetLastDemoName());
+            }
+            catch {}
+           
             RunProcess(GetRecordArguments());
         }
 
@@ -70,7 +75,7 @@ namespace PrBoomRecordTool
         {
             return $@"
                 -iwad {Config.GetIwadPath()}
-                -playdemo {GenerateDemoPath()}
+                -playdemo {Config.GetLastDemoName()}
                 -complevel {app.complevelInput.Value}
             ";
         }
@@ -83,7 +88,7 @@ namespace PrBoomRecordTool
 
             return $@"
                 -iwad {Config.GetIwadPath()}
-                -record {GenerateDemoPath()}
+                -record {Config.GetLastDemoName()}
                 -warp {episode} {app.levelInput.Value}
                 -complevel {app.complevelInput.Value}
                 -skill {app.skillSelect.SelectedIndex + 1}
@@ -118,11 +123,6 @@ namespace PrBoomRecordTool
                 currentProcess = null;
                 ShowWarningMessage($"{UNSPECIFIED_ERROR}: {e.Message}.");
             }
-        }
-
-        private string GenerateDemoPath()
-        {
-            return $@"{DirectoryTools.GetDirectory(Config.GetPrBoomPath())}\{app.demoNameInput.Text}.lmp";
         }
     }
 }

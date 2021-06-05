@@ -46,14 +46,20 @@ namespace PrBoomRecordTool
             openPrBoomDialog.ShowDialog();
         }
 
+        private void SetDemoPathButtonClick(object sender, EventArgs e)
+        {
+            DialogResult result = saveDemoDialog.ShowDialog();
+
+            if (result == DialogResult.OK) 
+            {
+                demoNameInput.Text = saveDemoDialog.FileName;
+                Config.Save("LastDemoName", saveDemoDialog.FileName);
+            }
+        }
+
         private void IsEpisodeActiveOnChange(object sender, EventArgs e)
         {
             episodeInput.Enabled = isEpisodeActiveCheckbox.Checked;
-        }
-
-        private void OnDemoNameChange(object sender, EventArgs e)
-        {
-            Config.Save("LastDemoName", demoNameInput.Text);
         }
 
         private void OnLoad(object sender, EventArgs e)
@@ -78,6 +84,7 @@ namespace PrBoomRecordTool
 
                 if (lastDemoName.Length != 0)
                 {
+                    saveDemoDialog.FileName = lastDemoName;
                     demoNameInput.Text = lastDemoName;
                 }
             } catch {}
