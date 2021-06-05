@@ -80,7 +80,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="src\Config.cs" />
     <Compile Include="src\DemoRecorder.cs" />
-    <Compile Include="src\DirectoryTools.cs" />
     <Compile Include="src\FileLoader.cs" />
     <EmbeddedResource Include="App.resx">
       <DependentUpon>App.cs</DependentUpon>

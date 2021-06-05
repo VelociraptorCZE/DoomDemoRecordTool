@@ -66,7 +66,7 @@ namespace PrBoomRecordTool
             // recordDemoButton
             // 
             this.recordDemoButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.recordDemoButton.Location = new System.Drawing.Point(12, 286);
+            this.recordDemoButton.Location = new System.Drawing.Point(12, 295);
             this.recordDemoButton.Name = "recordDemoButton";
             this.recordDemoButton.Size = new System.Drawing.Size(144, 38);
             this.recordDemoButton.TabIndex = 0;
@@ -191,7 +191,7 @@ namespace PrBoomRecordTool
             // 
             this.demoNameLabel.AutoSize = true;
             this.demoNameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.demoNameLabel.Location = new System.Drawing.Point(13, 202);
+            this.demoNameLabel.Location = new System.Drawing.Point(13, 215);
             this.demoNameLabel.Name = "demoNameLabel";
             this.demoNameLabel.Size = new System.Drawing.Size(327, 18);
             this.demoNameLabel.TabIndex = 9;
@@ -233,7 +233,7 @@ namespace PrBoomRecordTool
             // demoNameInput
             // 
             this.demoNameInput.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.demoNameInput.Location = new System.Drawing.Point(150, 224);
+            this.demoNameInput.Location = new System.Drawing.Point(150, 237);
             this.demoNameInput.Name = "demoNameInput";
             this.demoNameInput.ReadOnly = true;
             this.demoNameInput.Size = new System.Drawing.Size(376, 24);
@@ -282,7 +282,7 @@ namespace PrBoomRecordTool
             // playDemoButton
             // 
             this.playDemoButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.playDemoButton.Location = new System.Drawing.Point(162, 286);
+            this.playDemoButton.Location = new System.Drawing.Point(162, 295);
             this.playDemoButton.Name = "playDemoButton";
             this.playDemoButton.Size = new System.Drawing.Size(144, 38);
             this.playDemoButton.TabIndex = 16;
@@ -293,7 +293,7 @@ namespace PrBoomRecordTool
             // noMonstersCheckbox
             // 
             this.noMonstersCheckbox.AutoSize = true;
-            this.noMonstersCheckbox.Location = new System.Drawing.Point(264, 148);
+            this.noMonstersCheckbox.Location = new System.Drawing.Point(266, 148);
             this.noMonstersCheckbox.Name = "noMonstersCheckbox";
             this.noMonstersCheckbox.Size = new System.Drawing.Size(110, 21);
             this.noMonstersCheckbox.TabIndex = 17;
@@ -303,7 +303,7 @@ namespace PrBoomRecordTool
             // fastMonstersCheckbox
             // 
             this.fastMonstersCheckbox.AutoSize = true;
-            this.fastMonstersCheckbox.Location = new System.Drawing.Point(407, 146);
+            this.fastMonstersCheckbox.Location = new System.Drawing.Point(407, 148);
             this.fastMonstersCheckbox.Name = "fastMonstersCheckbox";
             this.fastMonstersCheckbox.Size = new System.Drawing.Size(119, 21);
             this.fastMonstersCheckbox.TabIndex = 18;
@@ -317,7 +317,7 @@ namespace PrBoomRecordTool
             // SetDemoPathButton
             // 
             this.SetDemoPathButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SetDemoPathButton.Location = new System.Drawing.Point(13, 223);
+            this.SetDemoPathButton.Location = new System.Drawing.Point(13, 236);
             this.SetDemoPathButton.Name = "SetDemoPathButton";
             this.SetDemoPathButton.Size = new System.Drawing.Size(131, 27);
             this.SetDemoPathButton.TabIndex = 19;
@@ -329,7 +329,7 @@ namespace PrBoomRecordTool
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(542, 336);
+            this.ClientSize = new System.Drawing.Size(537, 345);
             this.Controls.Add(this.SetDemoPathButton);
             this.Controls.Add(this.fastMonstersCheckbox);
             this.Controls.Add(this.noMonstersCheckbox);

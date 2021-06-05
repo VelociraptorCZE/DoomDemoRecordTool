@@ -19,8 +19,24 @@
         public void LoadIwad()
         {
             string path = app.openIwadDialog.FileName;
+            DecideComplevel();
             app.iwadPathLabel.Text = path;
             Config.Save("IwadPath", path);
+        }
+
+        private void DecideComplevel()
+        {
+            string wad = app.openIwadDialog.SafeFileName.ToLower().Replace(".wad", "");
+
+            if (wad == "doom")
+            {
+                app.complevelInput.Value = 3;
+            }
+
+            if (wad == "doom2")
+            {
+                app.complevelInput.Value = 2;
+            }
         }
     }
 }
