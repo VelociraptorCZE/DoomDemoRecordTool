@@ -50,6 +50,7 @@ namespace PrBoomRecordTool
             this.isEpisodeActiveCheckbox = new System.Windows.Forms.CheckBox();
             this.playDemoButton = new System.Windows.Forms.Button();
             this.noMonstersCheckbox = new System.Windows.Forms.CheckBox();
+            this.fastMonstersCheckbox = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.episodeInput)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.levelInput)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.complevelInput)).BeginInit();
@@ -291,18 +292,29 @@ namespace PrBoomRecordTool
             // noMonstersCheckbox
             // 
             this.noMonstersCheckbox.AutoSize = true;
-            this.noMonstersCheckbox.Location = new System.Drawing.Point(253, 148);
+            this.noMonstersCheckbox.Location = new System.Drawing.Point(264, 148);
             this.noMonstersCheckbox.Name = "noMonstersCheckbox";
             this.noMonstersCheckbox.Size = new System.Drawing.Size(110, 21);
             this.noMonstersCheckbox.TabIndex = 17;
             this.noMonstersCheckbox.Text = "No monsters";
             this.noMonstersCheckbox.UseVisualStyleBackColor = true;
             // 
+            // fastMonstersCheckbox
+            // 
+            this.fastMonstersCheckbox.AutoSize = true;
+            this.fastMonstersCheckbox.Location = new System.Drawing.Point(407, 146);
+            this.fastMonstersCheckbox.Name = "fastMonstersCheckbox";
+            this.fastMonstersCheckbox.Size = new System.Drawing.Size(119, 21);
+            this.fastMonstersCheckbox.TabIndex = 18;
+            this.fastMonstersCheckbox.Text = "Fast monsters";
+            this.fastMonstersCheckbox.UseVisualStyleBackColor = true;
+            // 
             // App
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(542, 336);
+            this.Controls.Add(this.fastMonstersCheckbox);
             this.Controls.Add(this.noMonstersCheckbox);
             this.Controls.Add(this.playDemoButton);
             this.Controls.Add(this.isEpisodeActiveCheckbox);
@@ -358,6 +370,7 @@ namespace PrBoomRecordTool
         public System.Windows.Forms.ComboBox skillSelect;
         public System.Windows.Forms.CheckBox isEpisodeActiveCheckbox;
         public System.Windows.Forms.CheckBox noMonstersCheckbox;
+        public System.Windows.Forms.CheckBox fastMonstersCheckbox;
     }
 }
 
