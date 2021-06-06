@@ -365,7 +365,7 @@ namespace PrBoomRecordTool
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "App";
-            this.Text = "PrBoom Record Tool";
+            this.Text = "Doom Demo Record Tool";
             this.Load += new System.EventHandler(this.OnLoad);
             ((System.ComponentModel.ISupportInitialize)(this.episodeInput)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.levelInput)).EndInit();
