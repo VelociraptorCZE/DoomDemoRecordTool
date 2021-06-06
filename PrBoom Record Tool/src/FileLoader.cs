@@ -19,15 +19,21 @@
         public void LoadIwad()
         {
             string path = app.openIwadDialog.FileName;
-            DecideComplevel();
             app.iwadPathLabel.Text = path;
             Config.Save("IwadPath", path);
+
+            string wad = GetCurrentWad();
+            DecideComplevel(wad);
+            app.isEpisodeActiveCheckbox.Checked = wad == "doom";
         }
 
-        private void DecideComplevel()
+        private string GetCurrentWad()
         {
-            string wad = app.openIwadDialog.SafeFileName.ToLower().Replace(".wad", "");
+            return app.openIwadDialog.SafeFileName.ToLower().Replace(".wad", "");
+        }
 
+        private void DecideComplevel(string wad)
+        {
             if (wad == "doom")
             {
                 app.complevelInput.Value = 3;
