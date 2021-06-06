@@ -85,6 +85,7 @@ namespace PrBoomRecordTool
             string episode = app.episodeInput.Enabled ? app.episodeInput.Value.ToString() : "";
             string noMonsters = app.noMonstersCheckbox.Checked ? "-nomonsters" : "";
             string fastMonsters = app.fastMonstersCheckbox.Checked ? "-fast" : "";
+            string respawn = app.respawnCheckbox.Checked ? "-respawn" : "";
 
             return $@"
                 -iwad {Config.GetIwadPath()}
@@ -94,6 +95,7 @@ namespace PrBoomRecordTool
                 -skill {app.skillSelect.SelectedIndex + 1}
                 {noMonsters}
                 {fastMonsters}
+                {respawn}
             ";
         }
 

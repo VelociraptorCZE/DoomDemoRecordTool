@@ -53,6 +53,7 @@ namespace PrBoomRecordTool
             this.fastMonstersCheckbox = new System.Windows.Forms.CheckBox();
             this.saveDemoDialog = new System.Windows.Forms.SaveFileDialog();
             this.SetDemoPathButton = new System.Windows.Forms.Button();
+            this.respawnCheckbox = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.episodeInput)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.levelInput)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.complevelInput)).BeginInit();
@@ -325,11 +326,22 @@ namespace PrBoomRecordTool
             this.SetDemoPathButton.UseVisualStyleBackColor = true;
             this.SetDemoPathButton.Click += new System.EventHandler(this.SetDemoPathButtonClick);
             // 
+            // respawnCheckbox
+            // 
+            this.respawnCheckbox.AutoSize = true;
+            this.respawnCheckbox.Location = new System.Drawing.Point(407, 175);
+            this.respawnCheckbox.Name = "respawnCheckbox";
+            this.respawnCheckbox.Size = new System.Drawing.Size(88, 21);
+            this.respawnCheckbox.TabIndex = 20;
+            this.respawnCheckbox.Text = "Respawn";
+            this.respawnCheckbox.UseVisualStyleBackColor = true;
+            // 
             // App
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(537, 345);
+            this.Controls.Add(this.respawnCheckbox);
             this.Controls.Add(this.SetDemoPathButton);
             this.Controls.Add(this.fastMonstersCheckbox);
             this.Controls.Add(this.noMonstersCheckbox);
@@ -390,6 +402,7 @@ namespace PrBoomRecordTool
         public System.Windows.Forms.CheckBox fastMonstersCheckbox;
         private System.Windows.Forms.SaveFileDialog saveDemoDialog;
         private System.Windows.Forms.Button SetDemoPathButton;
+        public System.Windows.Forms.CheckBox respawnCheckbox;
     }
 }
 
