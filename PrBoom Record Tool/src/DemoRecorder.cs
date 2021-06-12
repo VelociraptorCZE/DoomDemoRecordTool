@@ -14,11 +14,14 @@ namespace PrBoomRecordTool
         private const string UNSPECIFIED_ERROR = "Couldn't initiate PrBoom/GlBoom";
 
         private Process currentProcess;
-        private readonly App app;
 
-        public DemoRecorder(App app)
+        private readonly App app;
+        private readonly PwadLoader pwadLoader;
+
+        public DemoRecorder(App app, PwadLoader pwadLoader)
         {
             this.app = app;
+            this.pwadLoader = pwadLoader;
         }
 
         public void StartRecording()
@@ -93,6 +96,7 @@ namespace PrBoomRecordTool
                 -warp {episode} {app.levelInput.Value}
                 -complevel {app.complevelInput.Value}
                 -skill {app.skillSelect.SelectedIndex + 1}
+                {pwadLoader.GetPwads()}
                 {noMonsters}
                 {fastMonsters}
                 {respawn}

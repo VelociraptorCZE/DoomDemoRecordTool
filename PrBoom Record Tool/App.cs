@@ -7,13 +7,15 @@ namespace PrBoomRecordTool
     public partial class App : Form
     {
         private readonly FileLoader fileLoader;
+        private readonly PwadLoader pwadLoader;
         private readonly DemoRecorder demoRecorder;
 
         public App()
         {
             InitializeComponent();
             fileLoader = new FileLoader(this);
-            demoRecorder = new DemoRecorder(this);
+            pwadLoader = new PwadLoader(this);
+            demoRecorder = new DemoRecorder(this, pwadLoader);
         }
 
         private void PlayDemoButtonOnClick(object sender, EventArgs e)
@@ -36,6 +38,11 @@ namespace PrBoomRecordTool
             fileLoader.LoadIwad();
         }
 
+        private void OpenPwadDialogFileLoaded(object sender, CancelEventArgs e)
+        {
+            pwadLoader.LoadPwads();
+        }
+
         private void LocateIwadButtonOnClick(object sender, EventArgs e)
         {
             openIwadDialog.ShowDialog();
@@ -44,6 +51,11 @@ namespace PrBoomRecordTool
         private void LocatePrBoomButtonOnClick(object sender, EventArgs e)
         {
             openPrBoomDialog.ShowDialog();
+        }
+
+        private void LocatePwadsOnClick(object sender, EventArgs e)
+        {
+            openPwadDialog.ShowDialog();
         }
 
         private void SetDemoPathButtonClick(object sender, EventArgs e)
