@@ -350,7 +350,7 @@ namespace PrBoomRecordTool
             this.locatePwadsButton.TabIndex = 21;
             this.locatePwadsButton.Text = "Locate PWADs";
             this.locatePwadsButton.UseVisualStyleBackColor = true;
-            this.locatePwadsButton.Click += new System.EventHandler(this.LocatePwadsOnClick);
+            this.locatePwadsButton.Click += new System.EventHandler(this.LocatePwadButtonOnClick);
             // 
             // unloadPwadsButton
             // 
@@ -361,6 +361,7 @@ namespace PrBoomRecordTool
             this.unloadPwadsButton.TabIndex = 22;
             this.unloadPwadsButton.Text = "Unload PWAD";
             this.unloadPwadsButton.UseVisualStyleBackColor = true;
+            this.unloadPwadsButton.Click += new System.EventHandler(this.UnloadPwadButtonOnClick);
             // 
             // pwadListView
             // 

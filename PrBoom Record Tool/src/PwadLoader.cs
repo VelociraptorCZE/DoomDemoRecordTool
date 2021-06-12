@@ -1,4 +1,5 @@
-﻿using System.Windows.Forms;
+﻿using System.Linq;
+using System.Windows.Forms;
 
 namespace PrBoomRecordTool
 {
@@ -14,12 +15,18 @@ namespace PrBoomRecordTool
         public void LoadPwads()
         {
             string[] wads = app.openPwadDialog.FileNames;
-            SavePwads(wads);
-            UpdatePwadListView(wads);
+            UpdatePwadList(wads);
         }
 
-        public void UpdatePwadListView(string[] wads)
+        public void UnloadPwad(string pwad)
         {
+            UpdatePwadList(Config.GetPwads().Where(wad => wad != pwad).ToArray());
+        }
+
+        public void UpdatePwadList(string[] wads)
+        {
+            Config.Save("Pwads", string.Join("|", wads));
+
             foreach (ListViewItem item in app.pwadListView.Items)
             {
                 item.Remove();
@@ -29,11 +36,6 @@ namespace PrBoomRecordTool
             {
                 app.pwadListView.Items.Add(new ListViewItem { Text = wad });
             }
-        }
-
-        private void SavePwads(string[] wads)
-        {
-            Config.Save("Pwads", string.Join("|", wads));;
         }
     }
 }

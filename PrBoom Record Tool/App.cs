@@ -53,9 +53,14 @@ namespace PrBoomRecordTool
             openPrBoomDialog.ShowDialog();
         }
 
-        private void LocatePwadsOnClick(object sender, EventArgs e)
+        private void LocatePwadButtonOnClick(object sender, EventArgs e)
         {
             openPwadDialog.ShowDialog();
+        }
+
+        private void UnloadPwadButtonOnClick(object sender, EventArgs e)
+        {
+            pwadLoader.UnloadPwad(pwadListView.SelectedItems[0]?.Text);
         }
 
         private void SetDemoPathButtonClick(object sender, EventArgs e)
@@ -100,7 +105,7 @@ namespace PrBoomRecordTool
                     demoNameInput.Text = lastDemoName;
                 }
 
-                pwadLoader.UpdatePwadListView(Config.GetPwads());
+                pwadLoader.UpdatePwadList(Config.GetPwads());
             } catch {}
         }
     }
