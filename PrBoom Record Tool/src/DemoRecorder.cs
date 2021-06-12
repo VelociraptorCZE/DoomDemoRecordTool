@@ -16,12 +16,10 @@ namespace PrBoomRecordTool
         private Process currentProcess;
 
         private readonly App app;
-        private readonly PwadLoader pwadLoader;
 
-        public DemoRecorder(App app, PwadLoader pwadLoader)
+        public DemoRecorder(App app)
         {
             this.app = app;
-            this.pwadLoader = pwadLoader;
         }
 
         public void StartRecording()
@@ -89,6 +87,8 @@ namespace PrBoomRecordTool
             string noMonsters = app.noMonstersCheckbox.Checked ? "-nomonsters" : "";
             string fastMonsters = app.fastMonstersCheckbox.Checked ? "-fast" : "";
             string respawn = app.respawnCheckbox.Checked ? "-respawn" : "";
+            string pwadList = string.Join(" ", Config.GetPwads());
+            string file = pwadList.Length > 0 ? $"-file {pwadList}" : "";
 
             return $@"
                 -iwad {Config.GetIwadPath()}
@@ -96,7 +96,7 @@ namespace PrBoomRecordTool
                 -warp {episode} {app.levelInput.Value}
                 -complevel {app.complevelInput.Value}
                 -skill {app.skillSelect.SelectedIndex + 1}
-                {pwadLoader.GetPwads()}
+                {file}
                 {noMonsters}
                 {fastMonsters}
                 {respawn}

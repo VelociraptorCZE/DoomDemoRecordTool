@@ -364,6 +364,8 @@ namespace PrBoomRecordTool
             // 
             // pwadListView
             // 
+            this.pwadListView.AutoArrange = false;
+            this.pwadListView.FullRowSelect = true;
             this.pwadListView.HideSelection = false;
             this.pwadListView.Location = new System.Drawing.Point(158, 278);
             this.pwadListView.MultiSelect = false;

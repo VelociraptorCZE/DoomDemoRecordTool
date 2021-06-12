@@ -22,5 +22,10 @@
         {
             return Properties.Settings.Default.LastDemoName;
         }
+
+        public static string[] GetPwads()
+        {
+            return Properties.Settings.Default.Pwads.Split('|');
+        }
     }
 }

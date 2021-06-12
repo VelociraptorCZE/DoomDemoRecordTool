@@ -58,5 +58,17 @@ namespace PrBoomRecordTool.Properties {
                 this["LastDemoName"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string Pwads {
+            get {
+                return ((string)(this["Pwads"]));
+            }
+            set {
+                this["Pwads"] = value;
+            }
+        }
     }
 }

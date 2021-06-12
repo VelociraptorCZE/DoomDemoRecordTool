@@ -15,7 +15,7 @@ namespace PrBoomRecordTool
             InitializeComponent();
             fileLoader = new FileLoader(this);
             pwadLoader = new PwadLoader(this);
-            demoRecorder = new DemoRecorder(this, pwadLoader);
+            demoRecorder = new DemoRecorder(this);
         }
 
         private void PlayDemoButtonOnClick(object sender, EventArgs e)
@@ -99,6 +99,8 @@ namespace PrBoomRecordTool
                     saveDemoDialog.FileName = lastDemoName;
                     demoNameInput.Text = lastDemoName;
                 }
+
+                pwadLoader.UpdatePwadListView(Config.GetPwads());
             } catch {}
         }
     }

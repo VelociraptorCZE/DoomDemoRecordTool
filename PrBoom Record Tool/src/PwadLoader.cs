@@ -14,10 +14,11 @@ namespace PrBoomRecordTool
         public void LoadPwads()
         {
             string[] wads = app.openPwadDialog.FileNames;
+            SavePwads(wads);
             UpdatePwadListView(wads);
         }
 
-        private void UpdatePwadListView(string[] wads)
+        public void UpdatePwadListView(string[] wads)
         {
             foreach (ListViewItem item in app.pwadListView.Items)
             {
@@ -26,27 +27,13 @@ namespace PrBoomRecordTool
 
             foreach (string wad in wads)
             {
-                ListViewItem item = new ListViewItem();
-                item.Text = wad;
-                app.pwadListView.Items.Add(item);
+                app.pwadListView.Items.Add(new ListViewItem { Text = wad });
             }
         }
 
-        public string GetPwads()
+        private void SavePwads(string[] wads)
         {
-            if (app.pwadListView.Items.Count == 0)
-            {
-                return "";
-            }
-
-            string pwads = "";
-
-            foreach (ListViewItem item in app.pwadListView.Items)
-            {
-                pwads += $"{item.Text} ";
-            }
-
-            return $"-file {pwads}";
+            Config.Save("Pwads", string.Join("|", wads));;
         }
     }
 }
