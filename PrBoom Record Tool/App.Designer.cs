@@ -367,6 +367,7 @@ namespace PrBoomRecordTool
             // 
             this.pwadListView.AutoArrange = false;
             this.pwadListView.FullRowSelect = true;
+            this.pwadListView.GridLines = true;
             this.pwadListView.HideSelection = false;
             this.pwadListView.Location = new System.Drawing.Point(158, 278);
             this.pwadListView.MultiSelect = false;
@@ -374,6 +375,7 @@ namespace PrBoomRecordTool
             this.pwadListView.Size = new System.Drawing.Size(367, 92);
             this.pwadListView.TabIndex = 23;
             this.pwadListView.UseCompatibleStateImageBehavior = false;
+            this.pwadListView.View = System.Windows.Forms.View.List;
             // 
             // openPwadDialog
             // 

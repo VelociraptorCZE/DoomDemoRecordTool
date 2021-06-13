@@ -14,8 +14,7 @@ namespace PrBoomRecordTool
 
         public void LoadPwads()
         {
-            string[] wads = app.openPwadDialog.FileNames;
-            UpdatePwadList(wads);
+            UpdatePwadList(app.openPwadDialog.FileNames);
         }
 
         public void UnloadPwad(string pwad)
