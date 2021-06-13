@@ -70,5 +70,101 @@ namespace PrBoomRecordTool.Properties {
                 this["Pwads"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool HasIwadEpisodes {
+            get {
+                return ((bool)(this["HasIwadEpisodes"]));
+            }
+            set {
+                this["HasIwadEpisodes"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool IsRespawn {
+            get {
+                return ((bool)(this["IsRespawn"]));
+            }
+            set {
+                this["IsRespawn"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool IsFast {
+            get {
+                return ((bool)(this["IsFast"]));
+            }
+            set {
+                this["IsFast"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool IsNoMo {
+            get {
+                return ((bool)(this["IsNoMo"]));
+            }
+            set {
+                this["IsNoMo"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("1")]
+        public int Episode {
+            get {
+                return ((int)(this["Episode"]));
+            }
+            set {
+                this["Episode"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("1")]
+        public int Level {
+            get {
+                return ((int)(this["Level"]));
+            }
+            set {
+                this["Level"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("2")]
+        public int Complevel {
+            get {
+                return ((int)(this["Complevel"]));
+            }
+            set {
+                this["Complevel"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("3")]
+        public int Difficulty {
+            get {
+                return ((int)(this["Difficulty"]));
+            }
+            set {
+                this["Difficulty"] = value;
+            }
+        }
     }
 }

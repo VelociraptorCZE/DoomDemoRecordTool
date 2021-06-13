@@ -9,6 +9,7 @@ namespace PrBoomRecordTool
         private readonly FileLoader fileLoader;
         private readonly PwadLoader pwadLoader;
         private readonly DemoRecorder demoRecorder;
+        private readonly AppDataLoader appDataLoader;
 
         public App()
         {
@@ -16,6 +17,13 @@ namespace PrBoomRecordTool
             fileLoader = new FileLoader(this);
             pwadLoader = new PwadLoader(this);
             demoRecorder = new DemoRecorder(this);
+            appDataLoader = new AppDataLoader(this);
+        }
+
+        private void OnLoad(object sender, EventArgs e)
+        {
+            appDataLoader.FillInputsWithAppData();
+            pwadLoader.UpdatePwadList(Config.GetPwads());
         }
 
         private void PlayDemoButtonOnClick(object sender, EventArgs e)
@@ -77,36 +85,45 @@ namespace PrBoomRecordTool
         private void IsEpisodeActiveOnChange(object sender, EventArgs e)
         {
             episodeInput.Enabled = isEpisodeActiveCheckbox.Checked;
+            Config.Save("HasIwadEpisodes", isEpisodeActiveCheckbox.Checked);
         }
 
-        private void OnLoad(object sender, EventArgs e)
+        private void SkillSelectChanged(object sender, EventArgs e)
         {
-            skillSelect.SelectedIndex = 3;
+            Config.Save("Difficulty", skillSelect.SelectedIndex);
+        }
 
-            try
-            {
-                string iwadPath = Config.GetIwadPath();
-                string prBoomPath = Config.GetPrBoomPath();
-                string lastDemoName = Config.GetLastDemoName();
+        private void ComplevelInputChanged(object sender, EventArgs e)
+        {
+            Config.Save("Complevel", (int)complevelInput.Value);
+        }
 
-                if (iwadPath.Length != 0)
-                {
-                    iwadPathLabel.Text = iwadPath;
-                }
+        private void LevelInputChanged(object sender, EventArgs e)
+        {
+            Config.Save("Level", (int)levelInput.Value);
+        }
 
-                if (prBoomPath.Length != 0)
-                {
-                    prBoomPathLabel.Text = prBoomPath;
-                }
+        private void EpisodeInputChanged(object sender, EventArgs e)
+        {
+            Config.Save("Episode", (int)episodeInput.Value);
+        }
 
-                if (lastDemoName.Length != 0)
-                {
-                    saveDemoDialog.FileName = lastDemoName;
-                    demoNameInput.Text = lastDemoName;
-                }
+        private void NoMonstersCheckboxChanged(object sender, EventArgs e)
+        {
+            bool isNoMo = noMonstersCheckbox.Checked;
+            Config.Save("IsNoMo", isNoMo);
+            fastMonstersCheckbox.Enabled = !isNoMo;
+            respawnCheckbox.Enabled = !isNoMo;
+        }
 
-                pwadLoader.UpdatePwadList(Config.GetPwads());
-            } catch {}
+        private void FastMonstersCheckboxChanged(object sender, EventArgs e)
+        {
+            Config.Save("IsFast", fastMonstersCheckbox.Checked);
+        }
+
+        private void RespawnCheckboxChanged(object sender, EventArgs e)
+        {
+            Config.Save("IsRespawn", respawnCheckbox.Checked);
         }
     }
 }

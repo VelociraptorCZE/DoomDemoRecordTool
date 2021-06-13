@@ -52,7 +52,7 @@ namespace PrBoomRecordTool
             this.noMonstersCheckbox = new System.Windows.Forms.CheckBox();
             this.fastMonstersCheckbox = new System.Windows.Forms.CheckBox();
             this.saveDemoDialog = new System.Windows.Forms.SaveFileDialog();
-            this.SetDemoPathButton = new System.Windows.Forms.Button();
+            this.setDemoPathButton = new System.Windows.Forms.Button();
             this.respawnCheckbox = new System.Windows.Forms.CheckBox();
             this.locatePwadsButton = new System.Windows.Forms.Button();
             this.unloadPwadsButton = new System.Windows.Forms.Button();
@@ -148,6 +148,7 @@ namespace PrBoomRecordTool
             0,
             0,
             0});
+            this.episodeInput.ValueChanged += new System.EventHandler(this.EpisodeInputChanged);
             // 
             // episodeLabel
             // 
@@ -191,6 +192,7 @@ namespace PrBoomRecordTool
             0,
             0,
             0});
+            this.levelInput.ValueChanged += new System.EventHandler(this.LevelInputChanged);
             // 
             // demoNameLabel
             // 
@@ -234,6 +236,7 @@ namespace PrBoomRecordTool
             0,
             0,
             0});
+            this.complevelInput.ValueChanged += new System.EventHandler(this.ComplevelInputChanged);
             // 
             // demoNameInput
             // 
@@ -261,6 +264,7 @@ namespace PrBoomRecordTool
             this.skillSelect.Size = new System.Drawing.Size(199, 26);
             this.skillSelect.TabIndex = 13;
             this.skillSelect.ValueMember = "4";
+            this.skillSelect.SelectedIndexChanged += new System.EventHandler(this.SkillSelectChanged);
             // 
             // difficultyLabel
             // 
@@ -305,6 +309,7 @@ namespace PrBoomRecordTool
             this.noMonstersCheckbox.TabIndex = 17;
             this.noMonstersCheckbox.Text = "No monsters";
             this.noMonstersCheckbox.UseVisualStyleBackColor = true;
+            this.noMonstersCheckbox.CheckedChanged += new System.EventHandler(this.NoMonstersCheckboxChanged);
             // 
             // fastMonstersCheckbox
             // 
@@ -315,21 +320,22 @@ namespace PrBoomRecordTool
             this.fastMonstersCheckbox.TabIndex = 18;
             this.fastMonstersCheckbox.Text = "Fast monsters";
             this.fastMonstersCheckbox.UseVisualStyleBackColor = true;
+            this.fastMonstersCheckbox.CheckedChanged += new System.EventHandler(this.FastMonstersCheckboxChanged);
             // 
             // saveDemoDialog
             // 
             this.saveDemoDialog.Filter = "Doom demo file|*.lmp";
             // 
-            // SetDemoPathButton
+            // setDemoPathButton
             // 
-            this.SetDemoPathButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SetDemoPathButton.Location = new System.Drawing.Point(12, 226);
-            this.SetDemoPathButton.Name = "SetDemoPathButton";
-            this.SetDemoPathButton.Size = new System.Drawing.Size(131, 34);
-            this.SetDemoPathButton.TabIndex = 19;
-            this.SetDemoPathButton.Text = "Set demo path";
-            this.SetDemoPathButton.UseVisualStyleBackColor = true;
-            this.SetDemoPathButton.Click += new System.EventHandler(this.SetDemoPathButtonClick);
+            this.setDemoPathButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.setDemoPathButton.Location = new System.Drawing.Point(12, 226);
+            this.setDemoPathButton.Name = "setDemoPathButton";
+            this.setDemoPathButton.Size = new System.Drawing.Size(131, 34);
+            this.setDemoPathButton.TabIndex = 19;
+            this.setDemoPathButton.Text = "Set demo path";
+            this.setDemoPathButton.UseVisualStyleBackColor = true;
+            this.setDemoPathButton.Click += new System.EventHandler(this.SetDemoPathButtonClick);
             // 
             // respawnCheckbox
             // 
@@ -340,6 +346,7 @@ namespace PrBoomRecordTool
             this.respawnCheckbox.TabIndex = 20;
             this.respawnCheckbox.Text = "Respawn";
             this.respawnCheckbox.UseVisualStyleBackColor = true;
+            this.respawnCheckbox.CheckedChanged += new System.EventHandler(this.RespawnCheckboxChanged);
             // 
             // locatePwadsButton
             // 
@@ -392,7 +399,7 @@ namespace PrBoomRecordTool
             this.Controls.Add(this.unloadPwadsButton);
             this.Controls.Add(this.locatePwadsButton);
             this.Controls.Add(this.respawnCheckbox);
-            this.Controls.Add(this.SetDemoPathButton);
+            this.Controls.Add(this.setDemoPathButton);
             this.Controls.Add(this.fastMonstersCheckbox);
             this.Controls.Add(this.noMonstersCheckbox);
             this.Controls.Add(this.playDemoButton);
@@ -437,8 +444,7 @@ namespace PrBoomRecordTool
         private System.Windows.Forms.Button locateIwadButton;
         private System.Windows.Forms.Label difficultyLabel;
         private System.Windows.Forms.Button playDemoButton;
-        private System.Windows.Forms.SaveFileDialog saveDemoDialog;
-        private System.Windows.Forms.Button SetDemoPathButton;
+        private System.Windows.Forms.Button setDemoPathButton;
         private System.Windows.Forms.Button locatePwadsButton;
         private System.Windows.Forms.Button unloadPwadsButton;
 
@@ -457,6 +463,7 @@ namespace PrBoomRecordTool
         public System.Windows.Forms.CheckBox respawnCheckbox;
         public System.Windows.Forms.ListView pwadListView;
         public System.Windows.Forms.OpenFileDialog openPwadDialog;
+        public System.Windows.Forms.SaveFileDialog saveDemoDialog;
     }
 }
 
