@@ -52,8 +52,12 @@ namespace PrBoomRecordTool
             this.noMonstersCheckbox = new System.Windows.Forms.CheckBox();
             this.fastMonstersCheckbox = new System.Windows.Forms.CheckBox();
             this.saveDemoDialog = new System.Windows.Forms.SaveFileDialog();
-            this.SetDemoPathButton = new System.Windows.Forms.Button();
+            this.setDemoPathButton = new System.Windows.Forms.Button();
             this.respawnCheckbox = new System.Windows.Forms.CheckBox();
+            this.locatePwadsButton = new System.Windows.Forms.Button();
+            this.unloadPwadsButton = new System.Windows.Forms.Button();
+            this.pwadListView = new System.Windows.Forms.ListView();
+            this.openPwadDialog = new System.Windows.Forms.OpenFileDialog();
             ((System.ComponentModel.ISupportInitialize)(this.episodeInput)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.levelInput)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.complevelInput)).BeginInit();
@@ -67,9 +71,9 @@ namespace PrBoomRecordTool
             // recordDemoButton
             // 
             this.recordDemoButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.recordDemoButton.Location = new System.Drawing.Point(12, 295);
+            this.recordDemoButton.Location = new System.Drawing.Point(11, 386);
             this.recordDemoButton.Name = "recordDemoButton";
-            this.recordDemoButton.Size = new System.Drawing.Size(144, 38);
+            this.recordDemoButton.Size = new System.Drawing.Size(144, 53);
             this.recordDemoButton.TabIndex = 0;
             this.recordDemoButton.Text = "Record demo";
             this.recordDemoButton.UseVisualStyleBackColor = true;
@@ -125,7 +129,7 @@ namespace PrBoomRecordTool
             // episodeInput
             // 
             this.episodeInput.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.episodeInput.Location = new System.Drawing.Point(13, 114);
+            this.episodeInput.Location = new System.Drawing.Point(12, 104);
             this.episodeInput.Maximum = new decimal(new int[] {
             1000,
             0,
@@ -144,12 +148,13 @@ namespace PrBoomRecordTool
             0,
             0,
             0});
+            this.episodeInput.ValueChanged += new System.EventHandler(this.EpisodeInputChanged);
             // 
             // episodeLabel
             // 
             this.episodeLabel.AutoSize = true;
             this.episodeLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.episodeLabel.Location = new System.Drawing.Point(12, 91);
+            this.episodeLabel.Location = new System.Drawing.Point(11, 81);
             this.episodeLabel.Name = "episodeLabel";
             this.episodeLabel.Size = new System.Drawing.Size(62, 18);
             this.episodeLabel.TabIndex = 6;
@@ -159,7 +164,7 @@ namespace PrBoomRecordTool
             // 
             this.levelLabel.AutoSize = true;
             this.levelLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.levelLabel.Location = new System.Drawing.Point(104, 91);
+            this.levelLabel.Location = new System.Drawing.Point(103, 81);
             this.levelLabel.Name = "levelLabel";
             this.levelLabel.Size = new System.Drawing.Size(42, 18);
             this.levelLabel.TabIndex = 8;
@@ -168,7 +173,7 @@ namespace PrBoomRecordTool
             // levelInput
             // 
             this.levelInput.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.levelInput.Location = new System.Drawing.Point(105, 114);
+            this.levelInput.Location = new System.Drawing.Point(104, 104);
             this.levelInput.Maximum = new decimal(new int[] {
             1000,
             0,
@@ -187,12 +192,13 @@ namespace PrBoomRecordTool
             0,
             0,
             0});
+            this.levelInput.ValueChanged += new System.EventHandler(this.LevelInputChanged);
             // 
             // demoNameLabel
             // 
             this.demoNameLabel.AutoSize = true;
             this.demoNameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.demoNameLabel.Location = new System.Drawing.Point(13, 215);
+            this.demoNameLabel.Location = new System.Drawing.Point(12, 205);
             this.demoNameLabel.Name = "demoNameLabel";
             this.demoNameLabel.Size = new System.Drawing.Size(327, 18);
             this.demoNameLabel.TabIndex = 9;
@@ -202,7 +208,7 @@ namespace PrBoomRecordTool
             // 
             this.complevelLabel.AutoSize = true;
             this.complevelLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.complevelLabel.Location = new System.Drawing.Point(217, 91);
+            this.complevelLabel.Location = new System.Drawing.Point(216, 81);
             this.complevelLabel.Name = "complevelLabel";
             this.complevelLabel.Size = new System.Drawing.Size(78, 18);
             this.complevelLabel.TabIndex = 11;
@@ -211,7 +217,7 @@ namespace PrBoomRecordTool
             // complevelInput
             // 
             this.complevelInput.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.complevelInput.Location = new System.Drawing.Point(218, 114);
+            this.complevelInput.Location = new System.Drawing.Point(217, 104);
             this.complevelInput.Maximum = new decimal(new int[] {
             1000,
             0,
@@ -230,14 +236,16 @@ namespace PrBoomRecordTool
             0,
             0,
             0});
+            this.complevelInput.ValueChanged += new System.EventHandler(this.ComplevelInputChanged);
             // 
             // demoNameInput
             // 
-            this.demoNameInput.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.demoNameInput.Location = new System.Drawing.Point(150, 237);
+            this.demoNameInput.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.demoNameInput.Location = new System.Drawing.Point(149, 227);
+            this.demoNameInput.Margin = new System.Windows.Forms.Padding(0);
             this.demoNameInput.Name = "demoNameInput";
             this.demoNameInput.ReadOnly = true;
-            this.demoNameInput.Size = new System.Drawing.Size(376, 24);
+            this.demoNameInput.Size = new System.Drawing.Size(376, 28);
             this.demoNameInput.TabIndex = 12;
             // 
             // skillSelect
@@ -251,17 +259,18 @@ namespace PrBoomRecordTool
             "Hurt me plenty",
             "Ultra-Violence",
             "Nightmare!"});
-            this.skillSelect.Location = new System.Drawing.Point(327, 114);
+            this.skillSelect.Location = new System.Drawing.Point(326, 104);
             this.skillSelect.Name = "skillSelect";
             this.skillSelect.Size = new System.Drawing.Size(199, 26);
             this.skillSelect.TabIndex = 13;
             this.skillSelect.ValueMember = "4";
+            this.skillSelect.SelectedIndexChanged += new System.EventHandler(this.SkillSelectChanged);
             // 
             // difficultyLabel
             // 
             this.difficultyLabel.AutoSize = true;
             this.difficultyLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.difficultyLabel.Location = new System.Drawing.Point(324, 91);
+            this.difficultyLabel.Location = new System.Drawing.Point(323, 81);
             this.difficultyLabel.Name = "difficultyLabel";
             this.difficultyLabel.Size = new System.Drawing.Size(63, 18);
             this.difficultyLabel.TabIndex = 14;
@@ -272,7 +281,7 @@ namespace PrBoomRecordTool
             this.isEpisodeActiveCheckbox.AutoSize = true;
             this.isEpisodeActiveCheckbox.Checked = true;
             this.isEpisodeActiveCheckbox.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.isEpisodeActiveCheckbox.Location = new System.Drawing.Point(12, 148);
+            this.isEpisodeActiveCheckbox.Location = new System.Drawing.Point(11, 138);
             this.isEpisodeActiveCheckbox.Name = "isEpisodeActiveCheckbox";
             this.isEpisodeActiveCheckbox.Size = new System.Drawing.Size(221, 21);
             this.isEpisodeActiveCheckbox.TabIndex = 15;
@@ -283,9 +292,9 @@ namespace PrBoomRecordTool
             // playDemoButton
             // 
             this.playDemoButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.playDemoButton.Location = new System.Drawing.Point(162, 295);
+            this.playDemoButton.Location = new System.Drawing.Point(161, 386);
             this.playDemoButton.Name = "playDemoButton";
-            this.playDemoButton.Size = new System.Drawing.Size(144, 38);
+            this.playDemoButton.Size = new System.Drawing.Size(144, 53);
             this.playDemoButton.TabIndex = 16;
             this.playDemoButton.Text = "Play demo";
             this.playDemoButton.UseVisualStyleBackColor = true;
@@ -294,55 +303,103 @@ namespace PrBoomRecordTool
             // noMonstersCheckbox
             // 
             this.noMonstersCheckbox.AutoSize = true;
-            this.noMonstersCheckbox.Location = new System.Drawing.Point(266, 148);
+            this.noMonstersCheckbox.Location = new System.Drawing.Point(265, 138);
             this.noMonstersCheckbox.Name = "noMonstersCheckbox";
             this.noMonstersCheckbox.Size = new System.Drawing.Size(110, 21);
             this.noMonstersCheckbox.TabIndex = 17;
             this.noMonstersCheckbox.Text = "No monsters";
             this.noMonstersCheckbox.UseVisualStyleBackColor = true;
+            this.noMonstersCheckbox.CheckedChanged += new System.EventHandler(this.NoMonstersCheckboxChanged);
             // 
             // fastMonstersCheckbox
             // 
             this.fastMonstersCheckbox.AutoSize = true;
-            this.fastMonstersCheckbox.Location = new System.Drawing.Point(407, 148);
+            this.fastMonstersCheckbox.Location = new System.Drawing.Point(406, 138);
             this.fastMonstersCheckbox.Name = "fastMonstersCheckbox";
             this.fastMonstersCheckbox.Size = new System.Drawing.Size(119, 21);
             this.fastMonstersCheckbox.TabIndex = 18;
             this.fastMonstersCheckbox.Text = "Fast monsters";
             this.fastMonstersCheckbox.UseVisualStyleBackColor = true;
+            this.fastMonstersCheckbox.CheckedChanged += new System.EventHandler(this.FastMonstersCheckboxChanged);
             // 
             // saveDemoDialog
             // 
             this.saveDemoDialog.Filter = "Doom demo file|*.lmp";
             // 
-            // SetDemoPathButton
+            // setDemoPathButton
             // 
-            this.SetDemoPathButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SetDemoPathButton.Location = new System.Drawing.Point(13, 236);
-            this.SetDemoPathButton.Name = "SetDemoPathButton";
-            this.SetDemoPathButton.Size = new System.Drawing.Size(131, 27);
-            this.SetDemoPathButton.TabIndex = 19;
-            this.SetDemoPathButton.Text = "Set demo path";
-            this.SetDemoPathButton.UseVisualStyleBackColor = true;
-            this.SetDemoPathButton.Click += new System.EventHandler(this.SetDemoPathButtonClick);
+            this.setDemoPathButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.setDemoPathButton.Location = new System.Drawing.Point(12, 226);
+            this.setDemoPathButton.Name = "setDemoPathButton";
+            this.setDemoPathButton.Size = new System.Drawing.Size(131, 34);
+            this.setDemoPathButton.TabIndex = 19;
+            this.setDemoPathButton.Text = "Set demo path";
+            this.setDemoPathButton.UseVisualStyleBackColor = true;
+            this.setDemoPathButton.Click += new System.EventHandler(this.SetDemoPathButtonClick);
             // 
             // respawnCheckbox
             // 
             this.respawnCheckbox.AutoSize = true;
-            this.respawnCheckbox.Location = new System.Drawing.Point(407, 175);
+            this.respawnCheckbox.Location = new System.Drawing.Point(406, 165);
             this.respawnCheckbox.Name = "respawnCheckbox";
             this.respawnCheckbox.Size = new System.Drawing.Size(88, 21);
             this.respawnCheckbox.TabIndex = 20;
             this.respawnCheckbox.Text = "Respawn";
             this.respawnCheckbox.UseVisualStyleBackColor = true;
+            this.respawnCheckbox.CheckedChanged += new System.EventHandler(this.RespawnCheckboxChanged);
+            // 
+            // locatePwadsButton
+            // 
+            this.locatePwadsButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.locatePwadsButton.Location = new System.Drawing.Point(11, 278);
+            this.locatePwadsButton.Name = "locatePwadsButton";
+            this.locatePwadsButton.Size = new System.Drawing.Size(140, 44);
+            this.locatePwadsButton.TabIndex = 21;
+            this.locatePwadsButton.Text = "Locate PWADs";
+            this.locatePwadsButton.UseVisualStyleBackColor = true;
+            this.locatePwadsButton.Click += new System.EventHandler(this.LocatePwadButtonOnClick);
+            // 
+            // unloadPwadsButton
+            // 
+            this.unloadPwadsButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.unloadPwadsButton.Location = new System.Drawing.Point(11, 328);
+            this.unloadPwadsButton.Name = "unloadPwadsButton";
+            this.unloadPwadsButton.Size = new System.Drawing.Size(140, 42);
+            this.unloadPwadsButton.TabIndex = 22;
+            this.unloadPwadsButton.Text = "Unload PWAD";
+            this.unloadPwadsButton.UseVisualStyleBackColor = true;
+            this.unloadPwadsButton.Click += new System.EventHandler(this.UnloadPwadButtonOnClick);
+            // 
+            // pwadListView
+            // 
+            this.pwadListView.AutoArrange = false;
+            this.pwadListView.FullRowSelect = true;
+            this.pwadListView.GridLines = true;
+            this.pwadListView.HideSelection = false;
+            this.pwadListView.Location = new System.Drawing.Point(158, 278);
+            this.pwadListView.MultiSelect = false;
+            this.pwadListView.Name = "pwadListView";
+            this.pwadListView.Size = new System.Drawing.Size(367, 92);
+            this.pwadListView.TabIndex = 23;
+            this.pwadListView.UseCompatibleStateImageBehavior = false;
+            this.pwadListView.View = System.Windows.Forms.View.List;
+            // 
+            // openPwadDialog
+            // 
+            this.openPwadDialog.Filter = "PWAD|*.wad";
+            this.openPwadDialog.Multiselect = true;
+            this.openPwadDialog.FileOk += new System.ComponentModel.CancelEventHandler(this.OpenPwadDialogFileLoaded);
             // 
             // App
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(537, 345);
+            this.ClientSize = new System.Drawing.Size(539, 447);
+            this.Controls.Add(this.pwadListView);
+            this.Controls.Add(this.unloadPwadsButton);
+            this.Controls.Add(this.locatePwadsButton);
             this.Controls.Add(this.respawnCheckbox);
-            this.Controls.Add(this.SetDemoPathButton);
+            this.Controls.Add(this.setDemoPathButton);
             this.Controls.Add(this.fastMonstersCheckbox);
             this.Controls.Add(this.noMonstersCheckbox);
             this.Controls.Add(this.playDemoButton);
@@ -387,6 +444,9 @@ namespace PrBoomRecordTool
         private System.Windows.Forms.Button locateIwadButton;
         private System.Windows.Forms.Label difficultyLabel;
         private System.Windows.Forms.Button playDemoButton;
+        private System.Windows.Forms.Button setDemoPathButton;
+        private System.Windows.Forms.Button locatePwadsButton;
+        private System.Windows.Forms.Button unloadPwadsButton;
 
         public System.Windows.Forms.OpenFileDialog openPrBoomDialog;
         public System.Windows.Forms.Label prBoomPathLabel;
@@ -400,9 +460,10 @@ namespace PrBoomRecordTool
         public System.Windows.Forms.CheckBox isEpisodeActiveCheckbox;
         public System.Windows.Forms.CheckBox noMonstersCheckbox;
         public System.Windows.Forms.CheckBox fastMonstersCheckbox;
-        private System.Windows.Forms.SaveFileDialog saveDemoDialog;
-        private System.Windows.Forms.Button SetDemoPathButton;
         public System.Windows.Forms.CheckBox respawnCheckbox;
+        public System.Windows.Forms.ListView pwadListView;
+        public System.Windows.Forms.OpenFileDialog openPwadDialog;
+        public System.Windows.Forms.SaveFileDialog saveDemoDialog;
     }
 }
 

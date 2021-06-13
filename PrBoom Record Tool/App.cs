@@ -7,13 +7,23 @@ namespace PrBoomRecordTool
     public partial class App : Form
     {
         private readonly FileLoader fileLoader;
+        private readonly PwadLoader pwadLoader;
         private readonly DemoRecorder demoRecorder;
+        private readonly AppDataLoader appDataLoader;
 
         public App()
         {
             InitializeComponent();
             fileLoader = new FileLoader(this);
+            pwadLoader = new PwadLoader(this);
             demoRecorder = new DemoRecorder(this);
+            appDataLoader = new AppDataLoader(this);
+        }
+
+        private void OnLoad(object sender, EventArgs e)
+        {
+            appDataLoader.FillInputsWithAppData();
+            pwadLoader.UpdatePwadList(Config.GetPwads());
         }
 
         private void PlayDemoButtonOnClick(object sender, EventArgs e)
@@ -36,6 +46,11 @@ namespace PrBoomRecordTool
             fileLoader.LoadIwad();
         }
 
+        private void OpenPwadDialogFileLoaded(object sender, CancelEventArgs e)
+        {
+            pwadLoader.LoadPwads();
+        }
+
         private void LocateIwadButtonOnClick(object sender, EventArgs e)
         {
             openIwadDialog.ShowDialog();
@@ -44,6 +59,19 @@ namespace PrBoomRecordTool
         private void LocatePrBoomButtonOnClick(object sender, EventArgs e)
         {
             openPrBoomDialog.ShowDialog();
+        }
+
+        private void LocatePwadButtonOnClick(object sender, EventArgs e)
+        {
+            openPwadDialog.ShowDialog();
+        }
+
+        private void UnloadPwadButtonOnClick(object sender, EventArgs e)
+        {
+            if (pwadListView.SelectedItems.Count == 1)
+            {
+                pwadLoader.UnloadPwad(pwadListView.SelectedItems[0]?.Text ?? "");
+            }
         }
 
         private void SetDemoPathButtonClick(object sender, EventArgs e)
@@ -60,34 +88,45 @@ namespace PrBoomRecordTool
         private void IsEpisodeActiveOnChange(object sender, EventArgs e)
         {
             episodeInput.Enabled = isEpisodeActiveCheckbox.Checked;
+            Config.Save("HasIwadEpisodes", isEpisodeActiveCheckbox.Checked);
         }
 
-        private void OnLoad(object sender, EventArgs e)
+        private void SkillSelectChanged(object sender, EventArgs e)
         {
-            skillSelect.SelectedIndex = 3;
+            Config.Save("Difficulty", skillSelect.SelectedIndex);
+        }
 
-            try
-            {
-                string iwadPath = Config.GetIwadPath();
-                string prBoomPath = Config.GetPrBoomPath();
-                string lastDemoName = Config.GetLastDemoName();
+        private void ComplevelInputChanged(object sender, EventArgs e)
+        {
+            Config.Save("Complevel", (int)complevelInput.Value);
+        }
 
-                if (iwadPath.Length != 0)
-                {
-                    iwadPathLabel.Text = iwadPath;
-                }
+        private void LevelInputChanged(object sender, EventArgs e)
+        {
+            Config.Save("Level", (int)levelInput.Value);
+        }
 
-                if (prBoomPath.Length != 0)
-                {
-                    prBoomPathLabel.Text = prBoomPath;
-                }
+        private void EpisodeInputChanged(object sender, EventArgs e)
+        {
+            Config.Save("Episode", (int)episodeInput.Value);
+        }
 
-                if (lastDemoName.Length != 0)
-                {
-                    saveDemoDialog.FileName = lastDemoName;
-                    demoNameInput.Text = lastDemoName;
-                }
-            } catch {}
+        private void NoMonstersCheckboxChanged(object sender, EventArgs e)
+        {
+            bool isNoMo = noMonstersCheckbox.Checked;
+            Config.Save("IsNoMo", isNoMo);
+            fastMonstersCheckbox.Enabled = !isNoMo;
+            respawnCheckbox.Enabled = !isNoMo;
+        }
+
+        private void FastMonstersCheckboxChanged(object sender, EventArgs e)
+        {
+            Config.Save("IsFast", fastMonstersCheckbox.Checked);
+        }
+
+        private void RespawnCheckboxChanged(object sender, EventArgs e)
+        {
+            Config.Save("IsRespawn", respawnCheckbox.Checked);
         }
     }
 }

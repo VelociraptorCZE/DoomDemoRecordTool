@@ -78,9 +78,11 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="src\AppDataLoader.cs" />
     <Compile Include="src\Config.cs" />
     <Compile Include="src\DemoRecorder.cs" />
     <Compile Include="src\FileLoader.cs" />
+    <Compile Include="src\PwadLoader.cs" />
     <EmbeddedResource Include="App.resx">
       <DependentUpon>App.cs</DependentUpon>
     </EmbeddedResource>

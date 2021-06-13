@@ -14,6 +14,7 @@ namespace PrBoomRecordTool
         private const string UNSPECIFIED_ERROR = "Couldn't initiate PrBoom/GlBoom";
 
         private Process currentProcess;
+
         private readonly App app;
 
         public DemoRecorder(App app)
@@ -86,6 +87,8 @@ namespace PrBoomRecordTool
             string noMonsters = app.noMonstersCheckbox.Checked ? "-nomonsters" : "";
             string fastMonsters = app.fastMonstersCheckbox.Checked ? "-fast" : "";
             string respawn = app.respawnCheckbox.Checked ? "-respawn" : "";
+            string pwadList = string.Join(" ", Config.GetPwads());
+            string file = pwadList.Length > 0 ? $"-file {pwadList}" : "";
 
             return $@"
                 -iwad {Config.GetIwadPath()}
@@ -93,6 +96,7 @@ namespace PrBoomRecordTool
                 -warp {episode} {app.levelInput.Value}
                 -complevel {app.complevelInput.Value}
                 -skill {app.skillSelect.SelectedIndex + 1}
+                {file}
                 {noMonsters}
                 {fastMonsters}
                 {respawn}
