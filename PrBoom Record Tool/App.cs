@@ -68,7 +68,10 @@ namespace PrBoomRecordTool
 
         private void UnloadPwadButtonOnClick(object sender, EventArgs e)
         {
-            pwadLoader.UnloadPwad(pwadListView.SelectedItems[0]?.Text);
+            if (pwadListView.SelectedItems.Count == 1)
+            {
+                pwadLoader.UnloadPwad(pwadListView.SelectedItems[0]?.Text ?? "");
+            }
         }
 
         private void SetDemoPathButtonClick(object sender, EventArgs e)
