@@ -128,5 +128,14 @@ namespace PrBoomRecordTool
         {
             Config.Save("IsRespawn", respawnCheckbox.Checked);
         }
+
+        private void AboutButtonOnClick(object sender, EventArgs e)
+        {
+            MessageBox.Show(@"
+GUI tool for Classic DOOM demo recording for any source port.
+
+(c) 2021 Šimon Raichl
+            ", "About Doom Demo Record Tool");
+        }
     }
 }

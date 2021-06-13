@@ -58,6 +58,7 @@ namespace PrBoomRecordTool
             this.unloadPwadsButton = new System.Windows.Forms.Button();
             this.pwadListView = new System.Windows.Forms.ListView();
             this.openPwadDialog = new System.Windows.Forms.OpenFileDialog();
+            this.aboutButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.episodeInput)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.levelInput)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.complevelInput)).BeginInit();
@@ -390,11 +391,22 @@ namespace PrBoomRecordTool
             this.openPwadDialog.Multiselect = true;
             this.openPwadDialog.FileOk += new System.ComponentModel.CancelEventHandler(this.OpenPwadDialogFileLoaded);
             // 
+            // aboutButton
+            // 
+            this.aboutButton.Location = new System.Drawing.Point(455, 412);
+            this.aboutButton.Name = "aboutButton";
+            this.aboutButton.Size = new System.Drawing.Size(70, 23);
+            this.aboutButton.TabIndex = 24;
+            this.aboutButton.Text = "About";
+            this.aboutButton.UseVisualStyleBackColor = true;
+            this.aboutButton.Click += new System.EventHandler(this.AboutButtonOnClick);
+            // 
             // App
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(539, 447);
+            this.Controls.Add(this.aboutButton);
             this.Controls.Add(this.pwadListView);
             this.Controls.Add(this.unloadPwadsButton);
             this.Controls.Add(this.locatePwadsButton);
@@ -464,6 +476,7 @@ namespace PrBoomRecordTool
         public System.Windows.Forms.ListView pwadListView;
         public System.Windows.Forms.OpenFileDialog openPwadDialog;
         public System.Windows.Forms.SaveFileDialog saveDemoDialog;
+        private System.Windows.Forms.Button aboutButton;
     }
 }
 

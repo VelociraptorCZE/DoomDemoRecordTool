@@ -127,7 +127,7 @@ namespace PrBoomRecordTool
             catch (Exception e)
             {
                 currentProcess = null;
-                ShowWarningMessage($"{UNSPECIFIED_ERROR}: {e.Message}.");
+                ShowWarningMessage($"{UNSPECIFIED_ERROR}: {e.Message}");
             }
         }
     }
