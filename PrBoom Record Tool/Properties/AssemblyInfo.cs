@@ -9,7 +9,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyTitle("Doom Demo Record Tool")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("Šimon Raichl (VelociraptorCZE)")]
+[assembly: AssemblyCompany("Šimon Raichl")]
 [assembly: AssemblyProduct("Doom Demo Record Tool")]
 [assembly: AssemblyCopyright("Copyright © Šimon Raichl 2021")]
 [assembly: AssemblyTrademark("")]
