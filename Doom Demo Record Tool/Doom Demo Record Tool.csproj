@@ -6,7 +6,7 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{82134173-9F72-4C50-B468-42501AD4120E}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>PrBoomRecordTool</RootNamespace>
+    <RootNamespace>DoomDemoRecordTool</RootNamespace>
     <AssemblyName>Doom Demo Record Tool</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>

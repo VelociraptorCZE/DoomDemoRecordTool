@@ -1,4 +1,4 @@
-﻿namespace PrBoomRecordTool
+﻿namespace DoomDemoRecordTool
 {
     class FileLoader
     {

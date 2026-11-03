@@ -1,7 +1,7 @@
 ﻿using System.Linq;
 using System.Windows.Forms;
 
-namespace PrBoomRecordTool
+namespace DoomDemoRecordTool
 {
     class PwadLoader
     {

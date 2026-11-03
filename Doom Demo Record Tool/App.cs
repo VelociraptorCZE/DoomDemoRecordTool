@@ -2,7 +2,7 @@
 using System.ComponentModel;
 using System.Windows.Forms;
 
-namespace PrBoomRecordTool
+namespace DoomDemoRecordTool
 {
     public partial class App : Form
     {
@@ -134,7 +134,7 @@ namespace PrBoomRecordTool
             MessageBox.Show(@"
 GUI tool for Classic DOOM demo recording for any source port.
 
-(c) 2021 Šimon Raichl
+(c) 2026 Šimon Raichl
             ", "About Doom Demo Record Tool");
         }
     }

@@ -1,5 +1,5 @@
 ﻿
-namespace PrBoomRecordTool
+namespace DoomDemoRecordTool
 {
     partial class App
     {
