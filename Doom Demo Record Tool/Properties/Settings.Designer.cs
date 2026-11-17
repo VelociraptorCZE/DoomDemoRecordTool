@@ -118,6 +118,18 @@ namespace DoomDemoRecordTool.Properties {
                 this["IsNoMo"] = value;
             }
         }
+
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool IsStroller {
+            get {
+                return ((bool)(this["IsStroller"]));
+            }
+            set {
+                this["IsStroller"] = value;
+            }
+        }
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]

@@ -12,7 +12,7 @@
         public void LoadPrBoom()
         {
             string path = app.openPrBoomDialog.FileName;
-            app.prBoomPathLabel.Text = path;
+            app.prBoomPathLabel.Text = Utils.TruncateText(path, 32);
             Config.Save("PrBoomPath", path);
         }
 

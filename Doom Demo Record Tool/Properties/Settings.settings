@@ -26,6 +26,9 @@
     <Setting Name="IsNoMo" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
     </Setting>
+    <Setting Name="IsStroller" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
     <Setting Name="Episode" Type="System.Int32" Scope="User">
       <Value Profile="(Default)">1</Value>
     </Setting>

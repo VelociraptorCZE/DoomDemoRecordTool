@@ -3,15 +3,16 @@ using System.ComponentModel;
 using System.Diagnostics;
 using System.IO;
 using System.Windows.Forms;
+using System.Text.RegularExpressions;
 
 namespace DoomDemoRecordTool
 {
     class DemoRecorder
     {
-        private const string PATH_NOT_SET = "You haven't probably set up path to your prboom/glboom. Set this path to be able to record and play demos.";
-        private const string PROCESS_IN_PROGRESS = "PrBoom/GlBoom instance is still probably running hence you can't record/play demos at this moment.";
-        private const string INVALID_PATH = "PrBoom/GlBoom not found, try to relocate your sourceport.";
-        private const string UNSPECIFIED_ERROR = "Couldn't initiate PrBoom/GlBoom";
+        private const string PATH_NOT_SET = "You haven't probably set up path to your sourceport. Set this path to be able to record and play demos.";
+        private const string PROCESS_IN_PROGRESS = "Doom sourceport instance is still probably running hence you can't record/play demos at this moment.";
+        private const string INVALID_PATH = "Doom sourceport not found, try to relocate your sourceport.";
+        private const string UNSPECIFIED_ERROR = "Couldn't initiate Doom sourceport.";
 
         private Process currentProcess;
 
@@ -34,6 +35,8 @@ namespace DoomDemoRecordTool
                 File.Delete(Config.GetLastDemoName());
             }
             catch {}
+
+            Clipboard.SetText(GetRecordArguments());
            
             RunProcess(GetRecordArguments());
         }
@@ -88,8 +91,8 @@ namespace DoomDemoRecordTool
             string noMonsters = app.noMonstersCheckbox.Checked ? "-nomonsters" : "";
             string fastMonsters = app.fastMonstersCheckbox.Checked ? "-fast" : "";
             string respawn = app.respawnCheckbox.Checked ? "-respawn" : "";
-
-            return $@"
+            string stroller = app.strollerCheckbox.Checked ? "-stroller" : "";
+            string arguments = $@"
                 -iwad {Config.GetIwadPath()}
                 -record {Config.GetLastDemoName()}
                 -warp {episode} {app.levelInput.Value}
@@ -100,6 +103,8 @@ namespace DoomDemoRecordTool
                 {fastMonsters}
                 {respawn}
             ";
+
+            return Regex.Replace(arguments, @"\s+", " ").Trim();
         }
 
         private string GetFileParameter()

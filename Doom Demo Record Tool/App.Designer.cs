@@ -59,6 +59,7 @@ namespace DoomDemoRecordTool
             this.pwadListView = new System.Windows.Forms.ListView();
             this.openPwadDialog = new System.Windows.Forms.OpenFileDialog();
             this.aboutButton = new System.Windows.Forms.Button();
+            this.strollerCheckbox = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.episodeInput)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.levelInput)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.complevelInput)).BeginInit();
@@ -66,15 +67,17 @@ namespace DoomDemoRecordTool
             // 
             // openPrBoomDialog
             // 
-            this.openPrBoomDialog.Filter = "PrBoom+|prboom-plus.exe|PrBoom|prboom.exe|Executable|*.exe";
+            this.openPrBoomDialog.Filter = "Executable|*.exe|DSDA Doom|dsda-doom.exe|PrBoom+|prboom-plus.exe|PrBoom|prboom.ex" +
+    "e";
             this.openPrBoomDialog.FileOk += new System.ComponentModel.CancelEventHandler(this.OpenPrBoomDialogFileLoaded);
             // 
             // recordDemoButton
             // 
             this.recordDemoButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.recordDemoButton.Location = new System.Drawing.Point(11, 386);
+            this.recordDemoButton.Location = new System.Drawing.Point(8, 314);
+            this.recordDemoButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.recordDemoButton.Name = "recordDemoButton";
-            this.recordDemoButton.Size = new System.Drawing.Size(144, 53);
+            this.recordDemoButton.Size = new System.Drawing.Size(108, 43);
             this.recordDemoButton.TabIndex = 0;
             this.recordDemoButton.Text = "Record demo";
             this.recordDemoButton.UseVisualStyleBackColor = true;
@@ -83,9 +86,10 @@ namespace DoomDemoRecordTool
             // locatePrBoomButton
             // 
             this.locatePrBoomButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.locatePrBoomButton.Location = new System.Drawing.Point(12, 12);
+            this.locatePrBoomButton.Location = new System.Drawing.Point(9, 10);
+            this.locatePrBoomButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.locatePrBoomButton.Name = "locatePrBoomButton";
-            this.locatePrBoomButton.Size = new System.Drawing.Size(236, 31);
+            this.locatePrBoomButton.Size = new System.Drawing.Size(177, 25);
             this.locatePrBoomButton.TabIndex = 1;
             this.locatePrBoomButton.Text = "Locate sourceport";
             this.locatePrBoomButton.UseVisualStyleBackColor = true;
@@ -95,9 +99,10 @@ namespace DoomDemoRecordTool
             // 
             this.prBoomPathLabel.AutoSize = true;
             this.prBoomPathLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.prBoomPathLabel.Location = new System.Drawing.Point(13, 46);
+            this.prBoomPathLabel.Location = new System.Drawing.Point(10, 37);
+            this.prBoomPathLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.prBoomPathLabel.Name = "prBoomPathLabel";
-            this.prBoomPathLabel.Size = new System.Drawing.Size(193, 18);
+            this.prBoomPathLabel.Size = new System.Drawing.Size(158, 15);
             this.prBoomPathLabel.TabIndex = 2;
             this.prBoomPathLabel.Text = "Sourceport is not yet loaded";
             // 
@@ -105,18 +110,20 @@ namespace DoomDemoRecordTool
             // 
             this.iwadPathLabel.AutoSize = true;
             this.iwadPathLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.iwadPathLabel.Location = new System.Drawing.Point(287, 46);
+            this.iwadPathLabel.Location = new System.Drawing.Point(215, 37);
+            this.iwadPathLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.iwadPathLabel.Name = "iwadPathLabel";
-            this.iwadPathLabel.Size = new System.Drawing.Size(157, 18);
+            this.iwadPathLabel.Size = new System.Drawing.Size(128, 15);
             this.iwadPathLabel.TabIndex = 4;
             this.iwadPathLabel.Text = "IWAD is not yet loaded";
             // 
             // locateIwadButton
             // 
             this.locateIwadButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.locateIwadButton.Location = new System.Drawing.Point(290, 12);
+            this.locateIwadButton.Location = new System.Drawing.Point(218, 10);
+            this.locateIwadButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.locateIwadButton.Name = "locateIwadButton";
-            this.locateIwadButton.Size = new System.Drawing.Size(236, 31);
+            this.locateIwadButton.Size = new System.Drawing.Size(177, 25);
             this.locateIwadButton.TabIndex = 3;
             this.locateIwadButton.Text = "Locate IWAD";
             this.locateIwadButton.UseVisualStyleBackColor = true;
@@ -130,7 +137,8 @@ namespace DoomDemoRecordTool
             // episodeInput
             // 
             this.episodeInput.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.episodeInput.Location = new System.Drawing.Point(12, 104);
+            this.episodeInput.Location = new System.Drawing.Point(9, 84);
+            this.episodeInput.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.episodeInput.Maximum = new decimal(new int[] {
             1000,
             0,
@@ -142,7 +150,7 @@ namespace DoomDemoRecordTool
             0,
             0});
             this.episodeInput.Name = "episodeInput";
-            this.episodeInput.Size = new System.Drawing.Size(73, 27);
+            this.episodeInput.Size = new System.Drawing.Size(55, 23);
             this.episodeInput.TabIndex = 5;
             this.episodeInput.Value = new decimal(new int[] {
             1,
@@ -155,9 +163,10 @@ namespace DoomDemoRecordTool
             // 
             this.episodeLabel.AutoSize = true;
             this.episodeLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.episodeLabel.Location = new System.Drawing.Point(11, 81);
+            this.episodeLabel.Location = new System.Drawing.Point(8, 66);
+            this.episodeLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.episodeLabel.Name = "episodeLabel";
-            this.episodeLabel.Size = new System.Drawing.Size(62, 18);
+            this.episodeLabel.Size = new System.Drawing.Size(52, 15);
             this.episodeLabel.TabIndex = 6;
             this.episodeLabel.Text = "Episode";
             // 
@@ -165,16 +174,18 @@ namespace DoomDemoRecordTool
             // 
             this.levelLabel.AutoSize = true;
             this.levelLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.levelLabel.Location = new System.Drawing.Point(103, 81);
+            this.levelLabel.Location = new System.Drawing.Point(77, 66);
+            this.levelLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.levelLabel.Name = "levelLabel";
-            this.levelLabel.Size = new System.Drawing.Size(42, 18);
+            this.levelLabel.Size = new System.Drawing.Size(36, 15);
             this.levelLabel.TabIndex = 8;
             this.levelLabel.Text = "Level";
             // 
             // levelInput
             // 
             this.levelInput.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.levelInput.Location = new System.Drawing.Point(104, 104);
+            this.levelInput.Location = new System.Drawing.Point(78, 84);
+            this.levelInput.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.levelInput.Maximum = new decimal(new int[] {
             1000,
             0,
@@ -186,7 +197,7 @@ namespace DoomDemoRecordTool
             0,
             0});
             this.levelInput.Name = "levelInput";
-            this.levelInput.Size = new System.Drawing.Size(73, 27);
+            this.levelInput.Size = new System.Drawing.Size(55, 23);
             this.levelInput.TabIndex = 7;
             this.levelInput.Value = new decimal(new int[] {
             1,
@@ -199,9 +210,10 @@ namespace DoomDemoRecordTool
             // 
             this.demoNameLabel.AutoSize = true;
             this.demoNameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.demoNameLabel.Location = new System.Drawing.Point(12, 205);
+            this.demoNameLabel.Location = new System.Drawing.Point(9, 167);
+            this.demoNameLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.demoNameLabel.Name = "demoNameLabel";
-            this.demoNameLabel.Size = new System.Drawing.Size(327, 18);
+            this.demoNameLabel.Size = new System.Drawing.Size(269, 15);
             this.demoNameLabel.TabIndex = 9;
             this.demoNameLabel.Text = "Demo path (this is also used for demo playback)";
             // 
@@ -209,16 +221,18 @@ namespace DoomDemoRecordTool
             // 
             this.complevelLabel.AutoSize = true;
             this.complevelLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.complevelLabel.Location = new System.Drawing.Point(216, 81);
+            this.complevelLabel.Location = new System.Drawing.Point(162, 66);
+            this.complevelLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.complevelLabel.Name = "complevelLabel";
-            this.complevelLabel.Size = new System.Drawing.Size(78, 18);
+            this.complevelLabel.Size = new System.Drawing.Size(65, 15);
             this.complevelLabel.TabIndex = 11;
             this.complevelLabel.Text = "Complevel";
             // 
             // complevelInput
             // 
             this.complevelInput.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.complevelInput.Location = new System.Drawing.Point(217, 104);
+            this.complevelInput.Location = new System.Drawing.Point(163, 84);
+            this.complevelInput.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.complevelInput.Maximum = new decimal(new int[] {
             1000,
             0,
@@ -230,7 +244,7 @@ namespace DoomDemoRecordTool
             0,
             0});
             this.complevelInput.Name = "complevelInput";
-            this.complevelInput.Size = new System.Drawing.Size(73, 27);
+            this.complevelInput.Size = new System.Drawing.Size(55, 23);
             this.complevelInput.TabIndex = 10;
             this.complevelInput.Value = new decimal(new int[] {
             2,
@@ -242,11 +256,11 @@ namespace DoomDemoRecordTool
             // demoNameInput
             // 
             this.demoNameInput.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.demoNameInput.Location = new System.Drawing.Point(149, 227);
+            this.demoNameInput.Location = new System.Drawing.Point(112, 184);
             this.demoNameInput.Margin = new System.Windows.Forms.Padding(0);
             this.demoNameInput.Name = "demoNameInput";
             this.demoNameInput.ReadOnly = true;
-            this.demoNameInput.Size = new System.Drawing.Size(376, 28);
+            this.demoNameInput.Size = new System.Drawing.Size(283, 24);
             this.demoNameInput.TabIndex = 12;
             // 
             // skillSelect
@@ -260,9 +274,10 @@ namespace DoomDemoRecordTool
             "Hurt me plenty",
             "Ultra-Violence",
             "Nightmare!"});
-            this.skillSelect.Location = new System.Drawing.Point(326, 104);
+            this.skillSelect.Location = new System.Drawing.Point(244, 84);
+            this.skillSelect.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.skillSelect.Name = "skillSelect";
-            this.skillSelect.Size = new System.Drawing.Size(199, 26);
+            this.skillSelect.Size = new System.Drawing.Size(150, 23);
             this.skillSelect.TabIndex = 13;
             this.skillSelect.ValueMember = "4";
             this.skillSelect.SelectedIndexChanged += new System.EventHandler(this.SkillSelectChanged);
@@ -271,9 +286,10 @@ namespace DoomDemoRecordTool
             // 
             this.difficultyLabel.AutoSize = true;
             this.difficultyLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.difficultyLabel.Location = new System.Drawing.Point(323, 81);
+            this.difficultyLabel.Location = new System.Drawing.Point(242, 66);
+            this.difficultyLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.difficultyLabel.Name = "difficultyLabel";
-            this.difficultyLabel.Size = new System.Drawing.Size(63, 18);
+            this.difficultyLabel.Size = new System.Drawing.Size(52, 15);
             this.difficultyLabel.TabIndex = 14;
             this.difficultyLabel.Text = "Difficulty";
             // 
@@ -282,9 +298,10 @@ namespace DoomDemoRecordTool
             this.isEpisodeActiveCheckbox.AutoSize = true;
             this.isEpisodeActiveCheckbox.Checked = true;
             this.isEpisodeActiveCheckbox.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.isEpisodeActiveCheckbox.Location = new System.Drawing.Point(11, 138);
+            this.isEpisodeActiveCheckbox.Location = new System.Drawing.Point(8, 112);
+            this.isEpisodeActiveCheckbox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.isEpisodeActiveCheckbox.Name = "isEpisodeActiveCheckbox";
-            this.isEpisodeActiveCheckbox.Size = new System.Drawing.Size(221, 21);
+            this.isEpisodeActiveCheckbox.Size = new System.Drawing.Size(172, 17);
             this.isEpisodeActiveCheckbox.TabIndex = 15;
             this.isEpisodeActiveCheckbox.Text = "Does IWAD contain episodes?";
             this.isEpisodeActiveCheckbox.UseVisualStyleBackColor = true;
@@ -293,9 +310,10 @@ namespace DoomDemoRecordTool
             // playDemoButton
             // 
             this.playDemoButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.playDemoButton.Location = new System.Drawing.Point(161, 386);
+            this.playDemoButton.Location = new System.Drawing.Point(121, 314);
+            this.playDemoButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.playDemoButton.Name = "playDemoButton";
-            this.playDemoButton.Size = new System.Drawing.Size(144, 53);
+            this.playDemoButton.Size = new System.Drawing.Size(108, 43);
             this.playDemoButton.TabIndex = 16;
             this.playDemoButton.Text = "Play demo";
             this.playDemoButton.UseVisualStyleBackColor = true;
@@ -304,9 +322,10 @@ namespace DoomDemoRecordTool
             // noMonstersCheckbox
             // 
             this.noMonstersCheckbox.AutoSize = true;
-            this.noMonstersCheckbox.Location = new System.Drawing.Point(265, 138);
+            this.noMonstersCheckbox.Location = new System.Drawing.Point(199, 112);
+            this.noMonstersCheckbox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.noMonstersCheckbox.Name = "noMonstersCheckbox";
-            this.noMonstersCheckbox.Size = new System.Drawing.Size(110, 21);
+            this.noMonstersCheckbox.Size = new System.Drawing.Size(85, 17);
             this.noMonstersCheckbox.TabIndex = 17;
             this.noMonstersCheckbox.Text = "No monsters";
             this.noMonstersCheckbox.UseVisualStyleBackColor = true;
@@ -315,9 +334,10 @@ namespace DoomDemoRecordTool
             // fastMonstersCheckbox
             // 
             this.fastMonstersCheckbox.AutoSize = true;
-            this.fastMonstersCheckbox.Location = new System.Drawing.Point(406, 138);
+            this.fastMonstersCheckbox.Location = new System.Drawing.Point(304, 112);
+            this.fastMonstersCheckbox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.fastMonstersCheckbox.Name = "fastMonstersCheckbox";
-            this.fastMonstersCheckbox.Size = new System.Drawing.Size(119, 21);
+            this.fastMonstersCheckbox.Size = new System.Drawing.Size(91, 17);
             this.fastMonstersCheckbox.TabIndex = 18;
             this.fastMonstersCheckbox.Text = "Fast monsters";
             this.fastMonstersCheckbox.UseVisualStyleBackColor = true;
@@ -330,9 +350,10 @@ namespace DoomDemoRecordTool
             // setDemoPathButton
             // 
             this.setDemoPathButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.setDemoPathButton.Location = new System.Drawing.Point(12, 226);
+            this.setDemoPathButton.Location = new System.Drawing.Point(9, 184);
+            this.setDemoPathButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.setDemoPathButton.Name = "setDemoPathButton";
-            this.setDemoPathButton.Size = new System.Drawing.Size(131, 34);
+            this.setDemoPathButton.Size = new System.Drawing.Size(98, 28);
             this.setDemoPathButton.TabIndex = 19;
             this.setDemoPathButton.Text = "Set demo path";
             this.setDemoPathButton.UseVisualStyleBackColor = true;
@@ -341,9 +362,10 @@ namespace DoomDemoRecordTool
             // respawnCheckbox
             // 
             this.respawnCheckbox.AutoSize = true;
-            this.respawnCheckbox.Location = new System.Drawing.Point(406, 165);
+            this.respawnCheckbox.Location = new System.Drawing.Point(304, 134);
+            this.respawnCheckbox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.respawnCheckbox.Name = "respawnCheckbox";
-            this.respawnCheckbox.Size = new System.Drawing.Size(88, 21);
+            this.respawnCheckbox.Size = new System.Drawing.Size(71, 17);
             this.respawnCheckbox.TabIndex = 20;
             this.respawnCheckbox.Text = "Respawn";
             this.respawnCheckbox.UseVisualStyleBackColor = true;
@@ -352,9 +374,10 @@ namespace DoomDemoRecordTool
             // locatePwadsButton
             // 
             this.locatePwadsButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.locatePwadsButton.Location = new System.Drawing.Point(11, 278);
+            this.locatePwadsButton.Location = new System.Drawing.Point(8, 226);
+            this.locatePwadsButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.locatePwadsButton.Name = "locatePwadsButton";
-            this.locatePwadsButton.Size = new System.Drawing.Size(140, 44);
+            this.locatePwadsButton.Size = new System.Drawing.Size(105, 36);
             this.locatePwadsButton.TabIndex = 21;
             this.locatePwadsButton.Text = "Locate PWADs";
             this.locatePwadsButton.UseVisualStyleBackColor = true;
@@ -363,9 +386,10 @@ namespace DoomDemoRecordTool
             // unloadPwadsButton
             // 
             this.unloadPwadsButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.unloadPwadsButton.Location = new System.Drawing.Point(11, 328);
+            this.unloadPwadsButton.Location = new System.Drawing.Point(8, 266);
+            this.unloadPwadsButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.unloadPwadsButton.Name = "unloadPwadsButton";
-            this.unloadPwadsButton.Size = new System.Drawing.Size(140, 42);
+            this.unloadPwadsButton.Size = new System.Drawing.Size(105, 34);
             this.unloadPwadsButton.TabIndex = 22;
             this.unloadPwadsButton.Text = "Unload PWAD";
             this.unloadPwadsButton.UseVisualStyleBackColor = true;
@@ -377,10 +401,11 @@ namespace DoomDemoRecordTool
             this.pwadListView.FullRowSelect = true;
             this.pwadListView.GridLines = true;
             this.pwadListView.HideSelection = false;
-            this.pwadListView.Location = new System.Drawing.Point(158, 278);
+            this.pwadListView.Location = new System.Drawing.Point(118, 226);
+            this.pwadListView.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.pwadListView.MultiSelect = false;
             this.pwadListView.Name = "pwadListView";
-            this.pwadListView.Size = new System.Drawing.Size(367, 92);
+            this.pwadListView.Size = new System.Drawing.Size(276, 76);
             this.pwadListView.TabIndex = 23;
             this.pwadListView.UseCompatibleStateImageBehavior = false;
             this.pwadListView.View = System.Windows.Forms.View.List;
@@ -393,19 +418,33 @@ namespace DoomDemoRecordTool
             // 
             // aboutButton
             // 
-            this.aboutButton.Location = new System.Drawing.Point(455, 412);
+            this.aboutButton.Location = new System.Drawing.Point(341, 335);
+            this.aboutButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.aboutButton.Name = "aboutButton";
-            this.aboutButton.Size = new System.Drawing.Size(70, 23);
+            this.aboutButton.Size = new System.Drawing.Size(52, 19);
             this.aboutButton.TabIndex = 24;
             this.aboutButton.Text = "About";
             this.aboutButton.UseVisualStyleBackColor = true;
             this.aboutButton.Click += new System.EventHandler(this.AboutButtonOnClick);
             // 
+            // strollerCheckbox
+            // 
+            this.strollerCheckbox.AutoSize = true;
+            this.strollerCheckbox.Location = new System.Drawing.Point(199, 134);
+            this.strollerCheckbox.Margin = new System.Windows.Forms.Padding(2);
+            this.strollerCheckbox.Name = "strollerCheckbox";
+            this.strollerCheckbox.Size = new System.Drawing.Size(58, 17);
+            this.strollerCheckbox.TabIndex = 25;
+            this.strollerCheckbox.Text = "Stroller";
+            this.strollerCheckbox.UseVisualStyleBackColor = true;
+            this.strollerCheckbox.CheckedChanged += new System.EventHandler(this.StrollerCheckboxChanged);
+            // 
             // App
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(539, 447);
+            this.ClientSize = new System.Drawing.Size(404, 363);
+            this.Controls.Add(this.strollerCheckbox);
             this.Controls.Add(this.aboutButton);
             this.Controls.Add(this.pwadListView);
             this.Controls.Add(this.unloadPwadsButton);
@@ -432,6 +471,7 @@ namespace DoomDemoRecordTool
             this.Controls.Add(this.locatePrBoomButton);
             this.Controls.Add(this.recordDemoButton);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.MaximizeBox = false;
             this.Name = "App";
             this.Text = "Doom Demo Record Tool";
@@ -477,6 +517,7 @@ namespace DoomDemoRecordTool
         public System.Windows.Forms.OpenFileDialog openPwadDialog;
         public System.Windows.Forms.SaveFileDialog saveDemoDialog;
         private System.Windows.Forms.Button aboutButton;
+        public System.Windows.Forms.CheckBox strollerCheckbox;
     }
 }
 

@@ -43,6 +43,11 @@
             return Properties.Settings.Default.IsNoMo;
         }
 
+        public static bool IsStroller()
+        {
+            return Properties.Settings.Default.IsStroller;
+        }
+
         public static bool IsRespawn()
         {
             return Properties.Settings.Default.IsRespawn;

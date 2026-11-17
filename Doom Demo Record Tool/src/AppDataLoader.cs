@@ -20,6 +20,7 @@
             app.respawnCheckbox.Checked = Config.IsRespawn();
             app.fastMonstersCheckbox.Checked = Config.IsFast();
             app.noMonstersCheckbox.Checked = Config.IsNoMo();
+            app.strollerCheckbox.Checked = Config.IsStroller();
 
             try
             {
@@ -34,7 +35,7 @@
 
                 if (prBoomPath.Length != 0)
                 {
-                    app.prBoomPathLabel.Text = prBoomPath;
+                    app.prBoomPathLabel.Text = Utils.TruncateText(prBoomPath, 32);
                 }
 
                 if (lastDemoName.Length != 0)

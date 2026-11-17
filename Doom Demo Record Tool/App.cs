@@ -129,6 +129,11 @@ namespace DoomDemoRecordTool
             Config.Save("IsRespawn", respawnCheckbox.Checked);
         }
 
+        private void StrollerCheckboxChanged(object sender, EventArgs e)
+        {
+            Config.Save("IsStroller", strollerCheckbox.Checked);
+        }
+
         private void AboutButtonOnClick(object sender, EventArgs e)
         {
             MessageBox.Show(@"
