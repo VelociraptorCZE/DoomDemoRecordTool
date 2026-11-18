@@ -1,4 +1,6 @@
-﻿namespace DoomDemoRecordTool
+﻿using System.Text.RegularExpressions;
+
+namespace DoomDemoRecordTool
 {
     static class Utils
     {
@@ -10,6 +12,11 @@
             }
 
             return text.Substring(0, maxLength) + "…";
+        }
+
+        public static string TextToSingleLine(string text)
+        {
+            return Regex.Replace(text, @"\s+", " ").Trim(); ;
         }
     }
 }

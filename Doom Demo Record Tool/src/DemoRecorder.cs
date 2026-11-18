@@ -3,7 +3,6 @@ using System.ComponentModel;
 using System.Diagnostics;
 using System.IO;
 using System.Windows.Forms;
-using System.Text.RegularExpressions;
 
 namespace DoomDemoRecordTool
 {
@@ -77,12 +76,14 @@ namespace DoomDemoRecordTool
 
         private string GetPlayArguments()
         {
-            return $@"
+            string arguments = $@"
                 -iwad {Config.GetIwadPath()}
                 -playdemo {Config.GetLastDemoName()}
                 -complevel {app.complevelInput.Value}
                 {GetFileParameter()}
             ";
+
+            return Utils.TextToSingleLine(arguments);
         }
 
         private string GetRecordArguments() 
@@ -104,7 +105,7 @@ namespace DoomDemoRecordTool
                 {respawn}
             ";
 
-            return Regex.Replace(arguments, @"\s+", " ").Trim();
+            return Utils.TextToSingleLine(arguments);
         }
 
         private string GetFileParameter()
